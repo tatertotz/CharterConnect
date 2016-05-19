@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.example.delia_grimes.charterconnect"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="16"
+        android:targetSdkVersion="23" />
+
+    <application
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_launcher"
+        android:label="@string/app_name"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme" >
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.EventsCalandar"
+            android:label="@string/title_activity_events_calandar"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.SearchResults"
+            android:label="@string/title_activity_search_results"
+            android:parentActivityName="com.example.delia_grimes.charterconnect.ResourceMain"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.ResourceMain"
+                android:value="com.example.delia_grimes.charterconnect" >
+            </meta-data>
+        </activity>
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.ResourceCategory"
+            android:label="@string/title_activity_resource_category"
+            android:parentActivityName="com.example.delia_grimes.charterconnect.ResourceMain"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.ResourceMain"
+                android:value="com.example.delia_grimes.charterconnect" >
+            </meta-data>
+        </activity>
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.AddEvent"
+            android:label="@string/title_activity_add_event"
+            android:parentActivityName="com.example.delia_grimes.charterconnect.EventsMain"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.EventsMain"
+                android:value="com.example.delia_grimes.charterconnect" >
+            </meta-data>
+        </activity>
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.AddResource"
+            android:label="@string/title_activity_add_resource"
+            android:parentActivityName="com.example.delia_grimes.charterconnect.ResourceMain"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <meta-data
+                android:name="android.support.ResourceMain"
+                android:value="com.example.delia_grimes.charterconnect" >
+            </meta-data>
+        </activity>
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.ReserveRSVP"
+            android:label="@string/title_activity_reserve_rsvp"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.SchoolProfile"
+            android:label="@string/title_activity_school_profile"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.ViewEvent"
+            android:label="@string/title_activity_view_event"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.ViewResource"
+            android:label="@string/title_activity_view_resource"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.EventsMain"
+            android:label="@string/title_activity_events_main"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.ResourceMain"
+            android:label="@string/title_activity_resource_main"
+            android:theme="@style/AppTheme.NoActionBar" >
+        </activity>
+        <!--
+     ATTENTION: This was auto-generated to add Google Play services to your project for
+     App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
+        -->
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+
+        <activity
+            android:name="com.example.delia_grimes.charterconnect.StartScreen"
+            android:label="@string/title_activity_start_screen"
+            android:theme="@style/AppTheme.NoActionBar" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+    </application>
+
+</manifest>

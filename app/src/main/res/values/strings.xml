@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">CharterConnect</string>
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+    <string name="scienceButton">Science</string>
+    <string name="makerButton">Maker</string>
+    <string name="artButton">Art</string>
+    <string name="booksButton">Books</string>
+    <string name="title_activity_books">BooksActivity</string>
+    <string name="title_activity_events_main">EventsMain</string>
+    <string name="title_activity_events_calandar">EventsCalandar</string>
+    <string name="title_activity_search_results">SearchResults</string>
+    <string name="title_activity_resource_category">ResourceCategory</string>
+    <string name="title_activity_add_event">AddEvent</string>
+    <string name="title_activity_add_resource">AddResource</string>
+    <string name="title_activity_reserve_rsvp">ReserveRSVP</string>
+    <string name="title_activity_school_profile">SchoolProfile</string>
+    <string name="title_activity_view_event">ViewEvent</string>
+    <string name="title_activity_view_resource">ViewResource</string>
+    <string name="title_activity_resource_main">ResourceMain</string>
+    <string name="title_activity_start_page">startPage</string>
+    <array name="resource_types">
+        <item>Books</item>
+        <item>Art</item>
+        <item>Maker</item>
+        <item>Science</item>
+    </array>
+    <string name="title_activity_start_screen">CharterConnect</string>
+
+</resources>
+
+    <!--<?xml version="1.0" encoding="utf-8"?>--><!--<shape--><!--xmlns:android="http://schemas.android.com/apk/res/android"--><!--android:shape="oval">--><!--<corners--><!--android:radius="integer"--><!--android:topLeftRadius="integer"--><!--android:topRightRadius="integer"--><!--android:bottomLeftRadius="integer"--><!--android:bottomRightRadius="integer" />--><!--<gradient--><!--android:angle="integer"--><!--android:centerX="integer"--><!--android:centerY="integer"--><!--android:centerColor="integer"--><!--android:endColor="color"--><!--android:gradientRadius="integer"--><!--android:startColor="color"--><!--android:type=["linear" | "radial" | "sweep"]--><!--android:useLevel=["true" | "false"] />--><!--<padding--><!--android:left="integer"--><!--android:top="integer"--><!--android:right="integer"--><!--android:bottom="integer" />--><!--<size--><!--android:width="integer"--><!--android:height="integer" />--><!--<solid--><!--android:color="color" />--><!--<stroke--><!--android:width="integer"--><!--android:color="color"--><!--android:dashWidth="integer"--><!--android:dashGap="integer" />--><!--</shape>-->

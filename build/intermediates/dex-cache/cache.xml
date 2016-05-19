@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        jar="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-basement/8.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="d0dda274b703dd9c5bb056867649d22b4171ae7d">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/classes-4c775fcdc1ab516818866da1b6bbc423af02e710.jar" />
+    </item>
+    <item
+        jar="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/exploded-aar/com.google.android.gms/play-services-appindexing/8.1.0/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="4477ea44f5ec5ad064022a22691732d7638ff197">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/classes-3c1e0f9a1b9c749b92bb6fe072e27a0e7c0a6728.jar" />
+    </item>
+    <item
+        jar="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/libs/internal_impl-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="a4de9c81ae239414e1ed0f86441b02abaf29bca9">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/internal_impl-23.1.1-0db15f1f5f0af6b97a83f92367a9d98ccba257da.jar" />
+    </item>
+    <item
+        jar="/Users/annafrench/Library/Android/sdk/extras/android/m2repository/com/android/support/support-annotations/23.1.1/support-annotations-23.1.1.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="8d680ba5a623724d1fb0e81c36a790f023a6cede">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/support-annotations-23.1.1-3d351286ee96a420726c23addee7cd4ee7fc1167.jar" />
+    </item>
+    <item
+        jar="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/exploded-aar/com.android.support/appcompat-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="5c5699834e9722f1c288fea2de82725d078ba127">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/classes-4b5305ee8f6fe0f4d0aa8187806843f4bf673720.jar" />
+    </item>
+    <item
+        jar="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/exploded-aar/com.android.support/design/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="379471b2bd17d9737c050345c08e8c7d16589784">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/classes-e3b0c2c46acef61cc1543f13e93ad3b3bc98d1da.jar" />
+    </item>
+    <item
+        jar="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/exploded-aar/com.android.support/support-v4/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="6cbc7773921fcfedbe55657578f0cbfe614778dc">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/classes-d5b5e4713e21cf0a768db7690030b205e8782ed4.jar" />
+    </item>
+    <item
+        jar="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/exploded-aar/com.android.support/recyclerview-v7/23.1.1/jars/classes.jar"
+        jumboMode="false"
+        revision="23.0.2"
+        sha1="09c5e804bc67fc0580360043dff067df574a60d4">
+        <dex dex="/Users/annafrench/AndroidStudioProjects/CharterConnect/app/build/intermediates/pre-dexed/release/classes-2ca67f72b8d610bf236a8283a2bee563cf14ba91.jar" />
+    </item>
+
+</items>
