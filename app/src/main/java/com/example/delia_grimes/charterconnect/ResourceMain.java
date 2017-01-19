@@ -1,22 +1,14 @@
 package com.example.delia_grimes.charterconnect;
 
-import android.content.ContentValues;
 import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
+import android.util.DisplayMetrics;
 import android.view.View;
-import android.widget.Button;
 import android.view.View.OnClickListener;
-import android.widget.SimpleCursorAdapter;
-
-import android.content.Intent;
-import android.widget.EditText;
-
+import android.widget.Button;
 
 /*
 //cannot resolve symbol android
@@ -26,7 +18,6 @@ import com.google.android.gms.common.api.GoogleApiClient;
 import android.content.ContentValues;
 */
 //import <packagename>.app.R;
-import com.example.delia_grimes.charterconnect.R; //says that sometimes this has trouble..
 
 
 
@@ -50,6 +41,16 @@ public class ResourceMain extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int screenHeight = displaymetrics.heightPixels;
+        int screenWidth = displaymetrics.widthPixels;
+        //Getting the screen's width and height
+        double buttonHeightD = screenHeight*0.25;    //Making a variable for the height of the buttons
+        int buttonHeightI = (int) buttonHeightD;    //Changes the double into an int
+        double buttonWidthD = screenWidth*0.25;
+        int buttonWidthI = (int) buttonWidthD;
+
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
 //            @Override
@@ -68,7 +69,7 @@ public class ResourceMain extends AppCompatActivity {
         setTitle("");
 
 
-        final Button booksButton = (Button) findViewById(R.id.booksButton);
+        final Button booksButton = (Button) findViewById(R.id.booksButton); //Setting the IDs for the buttons
         final String booksButtonText = booksButton.getText().toString();
         booksButton.setOnClickListener(new OnClickListener() {
             public void onClick(View v) {
@@ -78,6 +79,8 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
+        booksButton.setHeight(buttonHeightI);   //Sets the height of the booksButton to 1/4 of the height of the screen
+        booksButton.setWidth(buttonWidthI); //Sets the width of the booksButton to 1/4 of the width of the screen
 
         final Button artButton = (Button) findViewById(R.id.artButton);
         final String artButtonText = artButton.getText().toString();

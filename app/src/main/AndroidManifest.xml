@@ -92,6 +92,10 @@
             android:name=".ResourceMain"
             android:label="@string/title_activity_resource_main"
             android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
         </activity>
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
@@ -105,10 +109,6 @@
             android:name=".StartScreen"
             android:label="@string/title_activity_start_screen"
             android:theme="@style/AppTheme.NoActionBar">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
         </activity>
     </application>
 
