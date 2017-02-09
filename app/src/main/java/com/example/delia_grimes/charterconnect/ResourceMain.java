@@ -47,8 +47,8 @@ public class ResourceMain extends AppCompatActivity {
         int screenWidth = displaymetrics.widthPixels;
         //Getting the screen's width and height
 
-        int buttonHeightI = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
-        int buttonWidthI = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
+        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
+        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -78,8 +78,8 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-        booksButton.setHeight(Math.min(buttonHeightI, buttonWidthI));   //Sets the height of the booksButton to 1/4 of the height of the screen
-        booksButton.setWidth(Math.min(buttonHeightI, buttonWidthI)); //Sets the width of the booksButton to 1/4 of the width of the screen
+        booksButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the booksButton to 1/4 of the height of the screen
+        booksButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the booksButton to 1/4 of the width of the screen
 
         final Button artButton = (Button) findViewById(R.id.artButton);
         final String artButtonText = artButton.getText().toString();
@@ -91,8 +91,8 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-        artButton.setHeight(Math.min(buttonHeightI, buttonWidthI));   //Sets the height of the artButton to 1/4 of the height of the screen
-        artButton.setWidth(Math.min(buttonHeightI, buttonWidthI)); //Sets the width of the artButton to 1/4 of the width of the screen
+        artButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the artButton to 1/4 of the height of the screen
+        artButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the artButton to 1/4 of the width of the screen
 
 
         final Button makerButton = (Button) findViewById(R.id.makerButton);
@@ -105,8 +105,8 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-        makerButton.setHeight(Math.min(buttonHeightI, buttonWidthI));   //Sets the height of the makerButton to 1/4 of the height of the screen
-        makerButton.setWidth(Math.min(buttonHeightI, buttonWidthI)); //Sets the width of the makerButton to 1/4 of the width of the screen
+        makerButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the makerButton to 1/4 of the height of the screen
+        makerButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the makerButton to 1/4 of the width of the screen
 
         final Button scienceButton = (Button) findViewById(R.id.scienceButton);
         //final String scienceButtonText = scienceButton.getText().toString();
@@ -119,8 +119,8 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-        scienceButton.setHeight(Math.min(buttonHeightI, buttonWidthI));   //Sets the height of the scienceButton to 1/4 of the height of the screen
-        scienceButton.setWidth(Math.min(buttonHeightI, buttonWidthI)); //Sets the width of the scienceButton to 1/4 of the width of the screen
+        scienceButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the scienceButton to 1/4 of the height of the screen
+        scienceButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the scienceButton to 1/4 of the width of the screen
 
         //client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
