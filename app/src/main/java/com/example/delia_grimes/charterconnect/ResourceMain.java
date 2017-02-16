@@ -30,7 +30,6 @@ public class ResourceMain extends AppCompatActivity {
 
 
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 
@@ -49,6 +48,9 @@ public class ResourceMain extends AppCompatActivity {
 
         int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
         int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
+
+        float addResourceButtonY = (float)(screenWidth*0.5);
+        float addResourceButtonX = (float)(screenHeight*0.5);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -124,6 +126,9 @@ public class ResourceMain extends AppCompatActivity {
 
         //client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
+        final Button addResourceButton = (Button) findViewById(R.id.button);
+        addResourceButton.setX(addResourceButtonX);
+        addResourceButton.setY(addResourceButtonY);
 
 
     }
