@@ -50,8 +50,23 @@ public class ScreenConfigurations {
     }
 
 
+    private void fixButtons(){
+        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
+        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
+        resourceMainButtons[2].setWidth(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[2].setHeight(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[3].setWidth(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[3].setHeight(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[4].setWidth(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[4].setHeight(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[5].setWidth(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[5].setHeight(Math.min(buttonHeight, buttonWidth));
+    }
 
 
+    public Button getButton(int whichButton){
+        return resourceMainButtons[whichButton];
+    }
 
 //    public int buttonX;
 //    public int buttonY;
