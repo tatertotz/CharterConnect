@@ -65,6 +65,15 @@ public class ResourceMain extends AppCompatActivity {
 
 
 
+        Button resourceMainButtons[] = new Button[7];
+        resourceMainButtons[0] = (Button)findViewById(R.id.resourcesButton);
+        resourceMainButtons[1] = (Button)findViewById(R.id.eventsButton);
+        resourceMainButtons[2] = (Button)findViewById(R.id.artButton);
+        resourceMainButtons[3] = (Button)findViewById(R.id.makerButton);
+        resourceMainButtons[4] = (Button)findViewById(R.id.booksButton);
+        resourceMainButtons[5] = (Button)findViewById(R.id.scienceButton);
+        resourceMainButtons[6] = (Button)findViewById(R.id.button);
+
 
         //Set the title so it isn't saying "resource main" etc
         setTitle("");
