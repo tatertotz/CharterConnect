@@ -84,7 +84,7 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        artButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the artButton to 1/4 of the height of the screen
 //        artButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the artButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton0(artButton); //putting the artButton into the first slot of the array
+        resourceMainScreen.setButton(artButton, 0); //putting the artButton into the first slot of the array
         artButton.setMinHeight(resourceMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
         artButton.setMinWidth(resourceMainScreen.getButton(0).getMinWidth());
 
@@ -102,7 +102,7 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        makerButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the makerButton to 1/4 of the height of the screen
 //        makerButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the makerButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton1(makerButton);
+        resourceMainScreen.setButton(makerButton, 1);
         makerButton.setMinHeight(resourceMainScreen.getButton(1).getMinHeight());
         makerButton.setMinWidth(resourceMainScreen.getButton(1).getMinWidth());
 
@@ -119,7 +119,7 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        booksButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the booksButton to 1/4 of the height of the screen
 //        booksButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the booksButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton2(booksButton);
+        resourceMainScreen.setButton(booksButton, 2);
         booksButton.setMinHeight(resourceMainScreen.getButton(2).getMinHeight());
         booksButton.setMinWidth(resourceMainScreen.getButton(2).getMinWidth());
 
@@ -137,7 +137,7 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        scienceButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the scienceButton to 1/4 of the height of the screen
 //        scienceButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the scienceButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton3(scienceButton);
+        resourceMainScreen.setButton(scienceButton, 3);
         scienceButton.setMinHeight(resourceMainScreen.getButton(3).getMinHeight());
         scienceButton.setMinWidth(resourceMainScreen.getButton(3).getMinWidth());
 

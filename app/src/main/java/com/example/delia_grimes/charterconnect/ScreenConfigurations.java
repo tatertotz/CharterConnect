@@ -22,40 +22,9 @@ public class ScreenConfigurations {
 
 
     //Putting buttons into the array and setting their width and height
-    public void setButton0(Button button0){
-        resourceMainButtons[0] = button0;
-        fixButtons(0);  //Calls the fixButtons method which resets the width and height of this button
-    }
-
-    public void setButton1(Button button1){
-        resourceMainButtons[1] = button1;
-//        resourceMainButtons[1].setMinHeight(200);
-        fixButtons(1);
-    }
-
-    public void setButton2(Button button2){
-        resourceMainButtons[2] = button2;
-        fixButtons(2);
-    }
-
-    public void setButton3(Button button3){
-        resourceMainButtons[3] = button3;
-        fixButtons(3);
-    }
-
-    public void setButton4(Button button4){
-        resourceMainButtons[4] = button4;
-        fixButtons(4);
-    }
-
-    public void setButton5(Button button5){
-        resourceMainButtons[5] = button5;
-        fixButtons(5);
-    }
-
-    public void setButton6(Button button6){
-        resourceMainButtons[6] = button6;
-        fixButtons(6);
+    public void setButton(Button button, int buttonNumber){
+        resourceMainButtons[buttonNumber] = button;
+        fixButtons(buttonNumber);  //Calls the fixButtons method which resets the width and height of this button
     }
 
 
