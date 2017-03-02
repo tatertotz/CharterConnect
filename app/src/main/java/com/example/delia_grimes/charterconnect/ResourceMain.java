@@ -36,18 +36,20 @@ public class ResourceMain extends AppCompatActivity {
 
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_resource_main);
-                //R.layout.activity_resource_main);//this is messed up
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        //Getting the screen's width and height
         DisplayMetrics displaymetrics = new DisplayMetrics();
         getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
         int screenHeight = displaymetrics.heightPixels;
         int screenWidth = displaymetrics.widthPixels;
-        //Getting the screen's width and height
 
-        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
-        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
+        //Making a new screen configuration (part of the class I made) that takes the screen width and height as arguments.
+        ScreenConfigurations resourceMainScreen = new ScreenConfigurations(screenWidth, screenHeight);
+
+//        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
+//        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
 
         float addResourceButtonY = (float)(screenWidth*0.5);
         float addResourceButtonX = (float)(screenHeight*0.5);
@@ -64,33 +66,11 @@ public class ResourceMain extends AppCompatActivity {
 //        });
 
 
-//
-//        Button resourceMainButtons[] = new Button[7];
-//        resourceMainButtons[0] = (Button)findViewById(R.id.resourcesButton);
-//        resourceMainButtons[1] = (Button)findViewById(R.id.eventsButton);
-//        resourceMainButtons[2] = (Button)findViewById(R.id.artButton);
-//        resourceMainButtons[3] = (Button)findViewById(R.id.makerButton);
-//        resourceMainButtons[4] = (Button)findViewById(R.id.booksButton);
-//        resourceMainButtons[5] = (Button)findViewById(R.id.scienceButton);
-//        resourceMainButtons[6] = (Button)findViewById(R.id.button);
-
 
         //Set the title so it isn't saying "resource main" etc
         setTitle("");
 
 
-        final Button booksButton = (Button) findViewById(R.id.booksButton); //Setting the IDs for the buttons
-        final String booksButtonText = booksButton.getText().toString();
-        booksButton.setOnClickListener(new OnClickListener() {
-            public void onClick(View v) {
-                resourcemainSwitchScreen(v, booksButton);
-                /*Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
-                intent.putExtra("resourcecategory", booksButtonText );
-                startActivity(intent);*/
-            }
-        });
-        booksButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the booksButton to 1/4 of the height of the screen
-        booksButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the booksButton to 1/4 of the width of the screen
 
         final Button artButton = (Button) findViewById(R.id.artButton);
         final String artButtonText = artButton.getText().toString();
@@ -102,8 +82,12 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-        artButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the artButton to 1/4 of the height of the screen
-        artButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the artButton to 1/4 of the width of the screen
+//        artButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the artButton to 1/4 of the height of the screen
+//        artButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the artButton to 1/4 of the width of the screen
+        resourceMainScreen.setButton0(artButton); //putting the artButton into the first slot of the array
+        artButton.setMinHeight(resourceMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        artButton.setMinWidth(resourceMainScreen.getButton(0).getMinWidth());
+
 
 
         final Button makerButton = (Button) findViewById(R.id.makerButton);
@@ -116,8 +100,29 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-        makerButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the makerButton to 1/4 of the height of the screen
-        makerButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the makerButton to 1/4 of the width of the screen
+//        makerButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the makerButton to 1/4 of the height of the screen
+//        makerButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the makerButton to 1/4 of the width of the screen
+        resourceMainScreen.setButton1(makerButton);
+        makerButton.setMinHeight(resourceMainScreen.getButton(1).getMinHeight());
+        makerButton.setMinWidth(resourceMainScreen.getButton(1).getMinWidth());
+
+
+        final Button booksButton = (Button) findViewById(R.id.booksButton); //Setting the IDs for the buttons
+        final String booksButtonText = booksButton.getText().toString();
+        booksButton.setOnClickListener(new OnClickListener() {
+            public void onClick(View v) {
+                resourcemainSwitchScreen(v, booksButton);
+                /*Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
+                intent.putExtra("resourcecategory", booksButtonText );
+                startActivity(intent);*/
+            }
+        });
+//        booksButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the booksButton to 1/4 of the height of the screen
+//        booksButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the booksButton to 1/4 of the width of the screen
+        resourceMainScreen.setButton2(booksButton);
+        booksButton.setMinHeight(resourceMainScreen.getButton(2).getMinHeight());
+        booksButton.setMinWidth(resourceMainScreen.getButton(2).getMinWidth());
+
 
         final Button scienceButton = (Button) findViewById(R.id.scienceButton);
         //final String scienceButtonText = scienceButton.getText().toString();
@@ -130,8 +135,11 @@ public class ResourceMain extends AppCompatActivity {
                 startActivity(intent);*/
             }
         });
-        scienceButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the scienceButton to 1/4 of the height of the screen
-        scienceButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the scienceButton to 1/4 of the width of the screen
+//        scienceButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the scienceButton to 1/4 of the height of the screen
+//        scienceButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the scienceButton to 1/4 of the width of the screen
+        resourceMainScreen.setButton3(scienceButton);
+        scienceButton.setMinHeight(resourceMainScreen.getButton(3).getMinHeight());
+        scienceButton.setMinWidth(resourceMainScreen.getButton(3).getMinWidth());
 
         //client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 

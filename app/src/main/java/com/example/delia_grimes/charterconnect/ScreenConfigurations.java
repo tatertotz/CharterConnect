@@ -10,13 +10,14 @@ public class ScreenConfigurations {
 
     public int screenWidth;
     public int screenHeight;
-    public Button resourceMainButtons[] = new Button[7]; //Initializes an array of 7 buttons
+    public Button[] resourceMainButtons; //Initializes an array of buttons
+
 
     //A constructor to make a screen configuration with a given width and height.
     public ScreenConfigurations(int screenWidth, int screenHeight) {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
-//        resourceMainButtons = new Button[7];
+        resourceMainButtons = new Button[7];
     }
 
 
@@ -28,6 +29,7 @@ public class ScreenConfigurations {
 
     public void setButton1(Button button1){
         resourceMainButtons[1] = button1;
+//        resourceMainButtons[1].setMinHeight(200);
         fixButtons(1);
     }
 
@@ -60,20 +62,18 @@ public class ScreenConfigurations {
     private void fixButtons(int button){
         int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
         int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
-        resourceMainButtons[button].setWidth(Math.min(buttonHeight, buttonWidth));
-        resourceMainButtons[button].setHeight(Math.min(buttonHeight, buttonWidth));
-//        resourceMainButtons[3].setWidth(Math.min(buttonHeight, buttonWidth));
-//        resourceMainButtons[3].setHeight(Math.min(buttonHeight, buttonWidth));
-//        resourceMainButtons[4].setWidth(Math.min(buttonHeight, buttonWidth));
-//        resourceMainButtons[4].setHeight(Math.min(buttonHeight, buttonWidth));
-//        resourceMainButtons[5].setWidth(Math.min(buttonHeight, buttonWidth));
-//        resourceMainButtons[5].setHeight(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[button].setMinWidth(Math.min(buttonHeight, buttonWidth));
+        resourceMainButtons[button].setMinHeight(Math.min(buttonHeight, buttonWidth));
     }
 
 
     public Button getButton(int whichButton){
         return resourceMainButtons[whichButton];
     }
+
+//    public int getButton(int whichButton){
+//        return resourceMainButtons[1].getMinHeight();
+//    }
 
 //    public int buttonX;
 //    public int buttonY;
