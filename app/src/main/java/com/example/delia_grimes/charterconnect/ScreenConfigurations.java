@@ -14,10 +14,10 @@ public class ScreenConfigurations {
 
 
     //A constructor to make a screen configuration with a given width and height.
-    public ScreenConfigurations(int screenWidth, int screenHeight) {
+    public ScreenConfigurations(int screenWidth, int screenHeight, int numberOfButtons) {
         this.screenWidth = screenWidth;
         this.screenHeight = screenHeight;
-        resourceMainButtons = new Button[7];
+        resourceMainButtons = new Button[numberOfButtons];
     }
 
 

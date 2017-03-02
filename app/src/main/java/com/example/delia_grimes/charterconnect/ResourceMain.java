@@ -46,7 +46,7 @@ public class ResourceMain extends AppCompatActivity {
         int screenWidth = displaymetrics.widthPixels;
 
         //Making a new screen configuration (part of the class I made) that takes the screen width and height as arguments.
-        ScreenConfigurations resourceMainScreen = new ScreenConfigurations(screenWidth, screenHeight);
+        ScreenConfigurations resourceMainScreen = new ScreenConfigurations(screenWidth, screenHeight, 7);
 
 //        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
 //        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
