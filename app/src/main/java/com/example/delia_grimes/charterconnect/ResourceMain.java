@@ -84,7 +84,7 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        artButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the artButton to 1/4 of the height of the screen
 //        artButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the artButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton(artButton, 0); //putting the artButton into the first slot of the array
+        resourceMainScreen.setButton(0, artButton, "categoryButton"); //putting the artButton into the first slot of the array
         artButton.setMinHeight(resourceMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
         artButton.setMinWidth(resourceMainScreen.getButton(0).getMinWidth());
 
@@ -102,7 +102,7 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        makerButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the makerButton to 1/4 of the height of the screen
 //        makerButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the makerButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton(makerButton, 1);
+        resourceMainScreen.setButton(1, makerButton, "categoryButton");
         makerButton.setMinHeight(resourceMainScreen.getButton(1).getMinHeight());
         makerButton.setMinWidth(resourceMainScreen.getButton(1).getMinWidth());
 
@@ -119,7 +119,7 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        booksButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the booksButton to 1/4 of the height of the screen
 //        booksButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the booksButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton(booksButton, 2);
+        resourceMainScreen.setButton(2, booksButton, "categoryButton");
         booksButton.setMinHeight(resourceMainScreen.getButton(2).getMinHeight());
         booksButton.setMinWidth(resourceMainScreen.getButton(2).getMinWidth());
 
@@ -137,16 +137,31 @@ public class ResourceMain extends AppCompatActivity {
         });
 //        scienceButton.setHeight(Math.min(buttonHeight, buttonWidth));   //Sets the height of the scienceButton to 1/4 of the height of the screen
 //        scienceButton.setWidth(Math.min(buttonHeight, buttonWidth)); //Sets the width of the scienceButton to 1/4 of the width of the screen
-        resourceMainScreen.setButton(scienceButton, 3);
+        resourceMainScreen.setButton(3, scienceButton, "categoryButton");
         scienceButton.setMinHeight(resourceMainScreen.getButton(3).getMinHeight());
         scienceButton.setMinWidth(resourceMainScreen.getButton(3).getMinWidth());
 
         //client = new GoogleApiClient.Builder(this).addApi(AppIndex.API).build();
 
         final Button addResourceButton = (Button) findViewById(R.id.button);
-        addResourceButton.setX(addResourceButtonX);
-        addResourceButton.setY(addResourceButtonY);
+//        addResourceButton.getLayoutParams().width=120;
+//        addResourceButton.getLayoutParams().height=200;
+        resourceMainScreen.setButton(4, addResourceButton, "");
+        addResourceButton.setMinHeight(resourceMainScreen.getButton(4).getMinHeight());
+        addResourceButton.setMinWidth(resourceMainScreen.getButton(4).getMinWidth());
+//        addResourceButton.setX(addResourceButtonX);
+//        addResourceButton.setY(addResourceButtonY);
 
+
+        final Button resourcesButton = (Button) findViewById(R.id.resourcesButton);
+        resourceMainScreen.setButton(5, resourcesButton, "");
+        resourcesButton.setMinHeight(resourceMainScreen.getButton(5).getMinHeight());
+        resourcesButton.setMinWidth(resourceMainScreen.getButton(5).getMinWidth());
+
+        final Button eventsButton = (Button) findViewById(R.id.eventsButton);
+        resourceMainScreen.setButton(6, eventsButton, "");
+        eventsButton.setMinHeight(resourceMainScreen.getButton(6).getMinHeight());
+        eventsButton.setMinWidth(resourceMainScreen.getButton(6).getMinWidth());
 
     }
 

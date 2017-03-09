@@ -22,17 +22,26 @@ public class ScreenConfigurations {
 
 
     //Putting buttons into the array and setting their width and height
-    public void setButton(Button button, int buttonNumber){
+    public void setButton(int buttonNumber, Button button, String buttonType){
         resourceMainButtons[buttonNumber] = button;
-        fixButtons(buttonNumber);  //Calls the fixButtons method which resets the width and height of this button
+        fixButtons(buttonNumber, buttonType);  //Calls the fixButtons method which resets the width and height of this button
     }
 
 
-    private void fixButtons(int button){
-        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
-        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
-        resourceMainButtons[button].setMinWidth(Math.min(buttonHeight, buttonWidth));
-        resourceMainButtons[button].setMinHeight(Math.min(buttonHeight, buttonWidth));
+    private void fixButtons(int button, String buttonType){
+
+        if(buttonType == "categoryButton"){
+            int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
+            int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
+            resourceMainButtons[button].setMinWidth(Math.min(buttonHeight, buttonWidth));
+            resourceMainButtons[button].setMinHeight(Math.min(buttonHeight, buttonWidth));
+        }else{
+            int buttonHeight = (int)(screenHeight*0.075);    //Making a variable for the height of the buttons
+            int buttonWidth = (int)(screenWidth*0.35); //Making a variable for the width of the buttons
+            resourceMainButtons[button].setMinWidth(buttonWidth);
+            resourceMainButtons[button].setMinHeight(buttonHeight);
+        }
+
     }
 
 
