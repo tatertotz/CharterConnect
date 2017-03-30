@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="Add Event"
+            android:text="@string/add_event_page_title"
             android:id="@+id/addEvent"
             android:layout_gravity="center_horizontal" />
 
@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/eventName"
             android:layout_gravity="center_horizontal"
-            android:hint="Event Name"/>
+            android:hint="@string/add_event_page_event_name_hint"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hostSchool"
             android:layout_gravity="center_horizontal"
-            android:hint="Host School"/>
+            android:hint="@string/add_event_page_host_school_hint"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -46,7 +46,7 @@
             android:ems="10"
             android:id="@+id/location"
             android:layout_gravity="center_horizontal"
-            android:hint="Event Location"/>
+            android:hint="@string/add_event_page_event_location_hint"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:ems="10"
             android:id="@+id/eventDate"
             android:layout_gravity="center_horizontal"
-            android:hint="Event Date"/>
+            android:hint="@string/add_event_page_event_date_hint"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:ems="10"
             android:id="@+id/eventTime"
             android:layout_gravity="center_horizontal"
-            android:hint="Event Time"/>
+            android:hint="@string/add_event_page_event_time_hint"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             android:ems="10"
             android:id="@+id/eventCost"
             android:layout_gravity="center_horizontal"
-            android:hint="Event Cost"/>
+            android:hint="@string/add_event_page_event_cost_hint"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
             android:ems="10"
             android:id="@+id/eventGradeLevels"
             android:layout_gravity="center_horizontal"
-            android:hint="Grade Levels"/>
+            android:hint="@string/grade_levels"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -91,7 +91,7 @@
             android:ems="10"
             android:id="@+id/spotsAvailable"
             android:layout_gravity="center_horizontal"
-            android:hint="Spaces Available"/>
+            android:hint="@string/add_event_page_spaces_available_hint"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:ems="10"
             android:id="@+id/rsvpEmail"
             android:layout_gravity="center_horizontal"
-            android:hint="RSVP Email Address" />
+            android:hint="@string/add_event_page_rsvp_email_hint" />
 
         <EditText
             android:layout_width="match_parent"
@@ -109,12 +109,12 @@
             android:ems="10"
             android:id="@+id/rsvpPhone"
             android:layout_gravity="center_horizontal"
-            android:hint="RSVP Phone Number"/>
+            android:hint="@string/add_event_page_rsvp_phone_number_hint"/>
 
         <Button
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:text="Save"
+            android:text="@string/save"
             android:id="@+id/eventsSaveButton"
             android:layout_gravity="center_horizontal"
             android:background="@android:color/holo_green_light"

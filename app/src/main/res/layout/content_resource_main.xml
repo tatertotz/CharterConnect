@@ -69,7 +69,7 @@
             android:layout_row="3" />
 
         <Button
-            android:text="Events"
+            android:text="@string/events"
             android:id="@+id/eventsButton"
             android:onClick="switchToEvents"
             android:layout_row="0"
@@ -78,7 +78,7 @@
             android:background="@android:color/holo_green_light" />
 
         <Button
-            android:text="Resources"
+            android:text="@string/resources"
             android:id="@+id/resourcesButton"
             android:layout_column="0"
             android:layout_row="0"
@@ -99,7 +99,7 @@
         android:layout_centerHorizontal="true">
 
         <Button
-            android:text="Add Resource"
+            android:text="@string/add_resource"
             android:id="@+id/button"
             android:onClick="addResource"
             android:background="@android:color/holo_green_light" />

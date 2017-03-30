@@ -61,7 +61,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/editGradeLevels"
-            android:hint="Grade Levels" />
+            android:hint="@string/grade_levels" />
 
         <EditText
             android:layout_width="match_parent"
@@ -82,7 +82,7 @@
         <Button
             android:layout_width="120dp"
             android:layout_height="50dp"
-            android:text="Save"
+            android:text="@string/save"
             android:id="@+id/saveButton"
             android:layout_gravity="center_horizontal"
             android:background="@android:color/holo_green_light"
