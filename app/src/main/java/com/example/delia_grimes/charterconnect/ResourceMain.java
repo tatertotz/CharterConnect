@@ -9,6 +9,7 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
+import android.widget.GridLayout;
 
 /*
 //cannot resolve symbol android
@@ -51,8 +52,11 @@ public class ResourceMain extends AppCompatActivity {
 //        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
 //        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
 
-        float addResourceButtonY = (float)(screenWidth*0.5);
-        float addResourceButtonX = (float)(screenHeight*0.5);
+        float addResourceButtonY = (float)(screenHeight*0.5);
+//        String meowSting = Float.toString(addResourceButtonY);
+//        String mooString = Integer.toString(screenHeight);
+//        Log.i("moo", mooString);
+//        Log.i("meow", meowSting);
 
 //        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
 //        fab.setOnClickListener(new View.OnClickListener() {
@@ -149,8 +153,8 @@ public class ResourceMain extends AppCompatActivity {
         resourceMainScreen.setButton(4, addResourceButton, "");
         addResourceButton.setMinHeight(resourceMainScreen.getButton(4).getMinHeight());
         addResourceButton.setMinWidth(resourceMainScreen.getButton(4).getMinWidth());
-//        addResourceButton.setX(addResourceButtonX);
-//        addResourceButton.setY(addResourceButtonY);
+        addResourceButton.setX(0);
+        addResourceButton.setY(0);
 
 
         final Button resourcesButton = (Button) findViewById(R.id.resourcesButton);
@@ -162,6 +166,15 @@ public class ResourceMain extends AppCompatActivity {
         resourceMainScreen.setButton(6, eventsButton, "");
         eventsButton.setMinHeight(resourceMainScreen.getButton(6).getMinHeight());
         eventsButton.setMinWidth(resourceMainScreen.getButton(6).getMinWidth());
+
+        final GridLayout addResourceGridLayout = (GridLayout) findViewById(R.id.addResourceGridLayout);
+        addResourceGridLayout.setY(0);
+//        String woof = Float.toString(addResourceButton.getMinHeight());
+//        Log.i("woof", woof);
+//        String bark = Float.toString(addResourceGridLayout.getY());
+//        Log.i("bark", bark);
+//        String cluck = Float.toString(addResourceGridLayout.getMinimumHeight());
+//        Log.i("cluck", cluck);
 
     }
 
