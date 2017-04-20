@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:textAppearance="?android:attr/textAppearanceLarge"
-            android:text="@string/add_event_page_title"
+            android:text="@string/add_event"
             android:id="@+id/addEvent"
             android:layout_gravity="center_horizontal" />
 
@@ -30,14 +30,14 @@
             android:layout_height="wrap_content"
             android:id="@+id/eventName"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_event_name_hint"/>
+            android:hint="@string/event_name"/>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/hostSchool"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_host_school_hint"/>
+            android:hint="@string/host_school"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -46,7 +46,7 @@
             android:ems="10"
             android:id="@+id/location"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_event_location_hint"/>
+            android:hint="@string/event_location"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -55,7 +55,7 @@
             android:ems="10"
             android:id="@+id/eventDate"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_event_date_hint"/>
+            android:hint="@string/event_date"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -64,7 +64,7 @@
             android:ems="10"
             android:id="@+id/eventTime"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_event_time_hint"/>
+            android:hint="@string/event_time"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -73,7 +73,7 @@
             android:ems="10"
             android:id="@+id/eventCost"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_event_cost_hint"/>
+            android:hint="@string/event_cost"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -91,7 +91,7 @@
             android:ems="10"
             android:id="@+id/spotsAvailable"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_spaces_available_hint"/>
+            android:hint="@string/spaces_available"/>
 
         <EditText
             android:layout_width="match_parent"
@@ -100,7 +100,7 @@
             android:ems="10"
             android:id="@+id/rsvpEmail"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_rsvp_email_hint" />
+            android:hint="@string/rsvp_email" />
 
         <EditText
             android:layout_width="match_parent"
@@ -109,7 +109,7 @@
             android:ems="10"
             android:id="@+id/rsvpPhone"
             android:layout_gravity="center_horizontal"
-            android:hint="@string/add_event_page_rsvp_phone_number_hint"/>
+            android:hint="@string/rsvp_phone_number"/>
 
         <Button
             android:layout_width="120dp"

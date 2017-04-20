@@ -6,12 +6,6 @@
 
     <string name="action_settings">Settings</string>
 
-    <string name="scienceButton">Science</string>
-    <string name="makerButton">Maker</string>
-    <string name="artButton">Art</string>
-    <string name="booksButton">Books</string>
-    <string name="events">Events</string>
-    <string name="resources">Resources</string>
     <string name="title_activity_events_main">Events</string>
     <string name="title_activity_events_calandar">Events Calandar</string>
     <string name="title_activity_search_results">Search Results</string>
@@ -24,26 +18,39 @@
     <string name="title_activity_view_resource">View Resource</string>
     <string name="title_activity_resource_main">Resources</string>
     <string name="title_activity_start_page">startPage</string>
-    <string name="add_event_page_title">Add Event</string>
-    <string name="add_event_page_event_name_hint">Event Name</string>
-    <string name="add_event_page_host_school_hint">Host School</string>
-    <string name="add_event_page_event_location_hint">Event Location</string>
-    <string name="add_event_page_event_date_hint">Event Date</string>
-    <string name="add_event_page_event_time_hint">Event Time</string>
-    <string name="add_event_page_event_cost_hint">Event Cost</string>
+    <string name="title_activity_start_screen">CharterConnect</string>
+
+    <string name="scienceButton">Science</string>
+    <string name="makerButton">Maker</string>
+    <string name="artButton">Art</string>
+    <string name="booksButton">Books</string>
+    <string name="events">Events</string>
+    <string name="resources">Resources</string>
+    <string name="add_event">Add Event</string>
+    <string name="event_name">Event Name</string>
+    <string name="host_school">Host School</string>
+    <string name="event_location">Event Location</string>
+    <string name="event_date">Event Date</string>
+    <string name="event_time">Event Time</string>
+    <string name="event_cost">Event Cost</string>
     <string name="grade_levels">Grade Levels</string>
-    <string name="add_event_page_spaces_available_hint">Spaces Available</string>
-    <string name="add_event_page_rsvp_email_hint">RSVP Email Address</string>
-    <string name="add_event_page_rsvp_phone_number_hint">RSVP Phone Number</string>
+    <string name="spaces_available">Spaces Available</string>
+    <string name="rsvp_email">RSVP Email Address</string>
+    <string name="rsvp_phone_number">RSVP Phone Number</string>
     <string name="save">Save</string>
     <string name="add_resource">Add Resource</string>
+    <string name="category">Category</string>
+    <string name="name_of_resource">Name of Resource/Set</string>
+    <string name="number_of_units">Number of Units</string>
+    <string name="date_available">Date Available</string>
+    <string name="contact_email">Contact Email</string>
+    <string name="description">Description</string>
     <array name="resource_types">
         <item>Books</item>
         <item>Art</item>
         <item>Maker</item>
         <item>Science</item>
     </array>
-    <string name="title_activity_start_screen">CharterConnect</string>
 
 </resources>
 
