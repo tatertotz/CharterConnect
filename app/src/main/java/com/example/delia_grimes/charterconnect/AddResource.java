@@ -1,24 +1,19 @@
 package com.example.delia_grimes.charterconnect;
 
+import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
 import android.view.View;
-import android.view.WindowManager;
-import android.view.inputmethod.InputMethod;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
-import android.content.ContentValues;
 import android.widget.EditText;
-import android.widget.TextView;
+import android.widget.Spinner;
 
 public class AddResource extends AppCompatActivity {
 
@@ -88,9 +83,10 @@ public class AddResource extends AppCompatActivity {
         ContentValues values = new ContentValues(); //make an entry
 
         EditText gettext;
-        gettext = (EditText) findViewById(R.id.editCategory);
-        String new_entry_category=gettext.getText().toString();
-        values.put(CharterConnectDataSQL.Resources.CATEGORY, new_entry_category); //this shoudl be inserting
+
+        Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+        String spinnerText = String.valueOf(categorySpinner.getSelectedItem());
+        values.put(CharterConnectDataSQL.Resources.CATEGORY, spinnerText); //putting category spinner selection into database
 
         gettext = (EditText) findViewById(R.id.editResourceName);
         values.put(CharterConnectDataSQL.Resources.NAME, gettext.getText().toString());
@@ -125,7 +121,7 @@ public class AddResource extends AppCompatActivity {
         //GUYS WHEN YOU SWITCH TO RESOURCECATEGORY THE INTENT HAS TO CONTAIN WHICH RESOURCE YOU ARE
         //VIEWING OR ELSE HUGE BUGZZZZ
         Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
-        intent.putExtra("resourcecategory", new_entry_category);//you need to grab whatever category the person just wrote
+        intent.putExtra("resourcecategory", spinnerText);//you need to grab whatever category the person just wrote
         startActivity(intent);
     }
 
