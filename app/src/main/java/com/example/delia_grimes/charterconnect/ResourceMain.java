@@ -167,8 +167,8 @@ public class ResourceMain extends AppCompatActivity {
         eventsButton.setMinHeight(resourceMainScreen.getButton(6).getMinHeight());
         eventsButton.setMinWidth(resourceMainScreen.getButton(6).getMinWidth());
 
-        final GridLayout addResourceGridLayout = (GridLayout) findViewById(R.id.addResourceGridLayout);
-        addResourceGridLayout.setY(0);
+//        final GridLayout addResourceGridLayout = (GridLayout) findViewById(R.id.addResourceGridLayout);
+//        addResourceGridLayout.setY(0);
 //        String woof = Float.toString(addResourceButton.getMinHeight());
 //        Log.i("woof", woof);
 //        String bark = Float.toString(addResourceGridLayout.getY());
