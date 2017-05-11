@@ -8,6 +8,8 @@ import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ViewResource extends AppCompatActivity {
@@ -42,46 +44,43 @@ public class ViewResource extends AppCompatActivity {
         Cursor c = db.rawQuery("SELECT * FROM Resources WHERE id = ?", selectionArgs);
 
 
-        //String[] thisrow = new String[10];
+
+        String[] resourceInfoArray = new String[5];
+
+        /**
+        int i=0;
+        while(c.moveToNext())
+        {
+            String uname = c.getString(c.getColumnIndex("name"));
+            resourceInfoArray[i] = uname;
+
+            i++;
+            //System.out.println(uname);
+        }
+         **/
+
 
 
 //Log.d("STUFF!!=: ", c.getString(c.getColumnIndex("name")));
         //String uname = c.getString(c.getColumnIndex("name"));
         if (c.moveToFirst()) {
-            TextView textviewid;
 
 
-            /*
-            *         public static final String CATEGORY= "category"; //books, movies, art, science
-        public static final String NAME= "name"; //ex book title and author, "microscope" etc
-        public static final String GRADELEVEL= "gradelevel";
-        public static final String NUM_UNITS= "quantity"; //10 microscopes, 10 copies of blah book
-        public static final String DATE_NEXT_AVAILABLE= "dateAvailable";
-        public static final String CONTACT_INFO= "contactInfo";// for who you reserve it with
-            * */
-            //thisrow[0] = c.getString(c.getColumnIndex("name"));//c.getString(2);
-            textviewid = (TextView) findViewById(R.id.textView12);
-            textviewid.setText(c.getString(c.getColumnIndex("name")));
+            String info = c.getString(c.getColumnIndex("category"));
+            resourceInfoArray[0] = info;
+            info = c.getString(c.getColumnIndex("gradelevel"));
+            resourceInfoArray[1] = info;
+            info = c.getString(c.getColumnIndex("quantity"));
+            resourceInfoArray[2] = info;
+            info = c.getString(c.getColumnIndex("dateAvailable"));
+            resourceInfoArray[3] = info;
+            info = c.getString(c.getColumnIndex("contactInfo"));
+            resourceInfoArray[4] = info;
 
-            textviewid = (TextView) findViewById(R.id.textView13);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Resources.CATEGORY)));
-            textviewid = (TextView) findViewById(R.id.textView14);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Resources.GRADELEVEL)));
-            textviewid = (TextView) findViewById(R.id.textView15);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Resources.NUM_UNITS)));
-            textviewid = (TextView) findViewById(R.id.textView16);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE)));
-            textviewid = (TextView) findViewById(R.id.textView17);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Resources.CONTACT_INFO)));
-            /*textviewid = (TextView) findViewById(R.id.textView8);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.GRADELEVEL)));
-            textviewid = (TextView) findViewById(R.id.textView9);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.SPACES_AVAILABLE)));
-            textviewid = (TextView) findViewById(R.id.textView10);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.EMAIL_ADDRESS)));
-            textviewid = (TextView) findViewById(R.id.textView11);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.PHONE_NUMBER)));*/
 
+            ArrayAdapter thisArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, resourceInfoArray);
+            ListView resourceInfoList = (ListView) findViewById(R.id.resourceInfoList);
+            resourceInfoList.setAdapter(thisArrayAdapter);
 
         }
 

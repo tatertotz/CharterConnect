@@ -22,7 +22,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import static com.example.delia_grimes.charterconnect.R.id.listView;
+import static com.example.delia_grimes.charterconnect.R.id.resourceCategoryList;
 
 public class ResourceCategory extends AppCompatActivity {
 
@@ -86,27 +86,13 @@ public class ResourceCategory extends AppCompatActivity {
             //System.out.println(uname);
         }
 
-        /*ArrayAdapter thisArrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,namearray);
-        ListView thislist = (ListView) findViewById(R.id.listView2);
-        thislist.setAdapter(thisArrayAdapter);
-
-        thislist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(EventsMain.this, ViewEvent.class);
-                intent.putExtra("sql_id", idarray[position]);
-                startActivity(intent);
-            }
-        });
-        */
-
 
         //addRandomItem(mDbHelper);
         ArrayAdapter thisArrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,namearray);
-        ListView thislist = (ListView) findViewById(R.id.listView);
-        thislist.setAdapter(thisArrayAdapter);
+        ListView resourceCategoryList = (ListView) findViewById(R.id.resourceCategoryList);
+        resourceCategoryList.setAdapter(thisArrayAdapter);
 
-        thislist.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        resourceCategoryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                 Intent intent = new Intent(ResourceCategory.this, ViewResource.class);
@@ -200,111 +186,8 @@ public class ResourceCategory extends AppCompatActivity {
                 null,
                 values);
 
-/*
-        //ContentValues values = new ContentValues(); //make an entry
-        values = new ContentValues();
-//
-//        EditText gettext;
-//        gettext = (EditText) findViewById(R.id.eventName);
-//        String new_entry_category=gettext.getText().toString();
-        values.put(CharterConnectDataSQL.Resources.NAME, "COOL DANCE"); //this shoudl be inserting
-
-        //gettext = (EditText) findViewById(R.id.hostSchool);
-        values.put(CharterConnectDataSQL.Resources.GRADELEVEL, "Avalon");
-
-        //gettext = (EditText) findViewById(R.id.location);
-        values.put(CharterConnectDataSQL.Resources.NUM_UNITS, "Avalon");
-
-        //gettext = (EditText) findViewById(R.id.eventDate);
-        values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, "1/1");
-
-        //gettext = (EditText) findViewById(R.id.eventTime);
-        values.put(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE, "3");
-
-        //gettext = (EditText) findViewById(R.id.eventCost);
-        values.put(CharterConnectDataSQL.Resources.CATEGORY, "Maker");
-
-        values.put(CharterConnectDataSQL.Resources.COLUMN_NAME_ENTRY_ID, "1");
-
-
-        //long newRowId;
-        newRowId = db.insert(
-                CharterConnectDataSQL.Resources.TABLE_NAME,
-                null,
-                values);
-
-
-        values = new ContentValues(); //make an entry
-
-//
-//        EditText gettext;
-//        gettext = (EditText) findViewById(R.id.eventName);
-//        String new_entry_category=gettext.getText().toString();
-        values.put(CharterConnectDataSQL.Resources.NAME, "COOL DANCE"); //this shoudl be inserting
-
-        //gettext = (EditText) findViewById(R.id.hostSchool);
-        values.put(CharterConnectDataSQL.Resources.GRADELEVEL, "Avalon");
-
-        //gettext = (EditText) findViewById(R.id.location);
-        values.put(CharterConnectDataSQL.Resources.NUM_UNITS, "Avalon");
-
-        //gettext = (EditText) findViewById(R.id.eventDate);
-        values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, "1/1");
-
-        //gettext = (EditText) findViewById(R.id.eventTime);
-        values.put(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE, "3");
-
-        //gettext = (EditText) findViewById(R.id.eventCost);
-        values.put(CharterConnectDataSQL.Resources.CATEGORY, "Books");
-
-        values.put(CharterConnectDataSQL.Resources.COLUMN_NAME_ENTRY_ID, "1");
-
-
-        //long newRowId;
-        newRowId = db.insert(
-                CharterConnectDataSQL.Resources.TABLE_NAME,
-                null,
-                values);
-
-
-       values = new ContentValues(); //make an entry
-
-//
-//        EditText gettext;
-//        gettext = (EditText) findViewById(R.id.eventName);
-//        String new_entry_category=gettext.getText().toString();
-        values.put(CharterConnectDataSQL.Resources.NAME, "COOL DANCE"); //this shoudl be inserting
-
-        //gettext = (EditText) findViewById(R.id.hostSchool);
-        values.put(CharterConnectDataSQL.Resources.GRADELEVEL, "Avalon");
-
-        //gettext = (EditText) findViewById(R.id.location);
-        values.put(CharterConnectDataSQL.Resources.NUM_UNITS, "Avalon");
-
-        //gettext = (EditText) findViewById(R.id.eventDate);
-        values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, "1/1");
-
-        //gettext = (EditText) findViewById(R.id.eventTime);
-        values.put(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE, "3");
-
-        //gettext = (EditText) findViewById(R.id.eventCost);
-        values.put(CharterConnectDataSQL.Resources.CATEGORY, "Art");
-
-        values.put(CharterConnectDataSQL.Resources.COLUMN_NAME_ENTRY_ID, "1");
-
-
-        //long newRowId;
-        newRowId = db.insert(
-                CharterConnectDataSQL.Resources.TABLE_NAME,
-                null,
-                values);*/
 
     }
-
-
-
-
-
 
 
 }

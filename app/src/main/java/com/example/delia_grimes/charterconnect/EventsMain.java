@@ -69,7 +69,7 @@ import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
 
-import static com.example.delia_grimes.charterconnect.R.id.listView;
+import static com.example.delia_grimes.charterconnect.R.id.listView2;
 
 public class EventsMain extends AppCompatActivity {
 
