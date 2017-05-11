@@ -34,17 +34,17 @@ public class ViewResource extends AppCompatActivity {
         }
         //Log.d("STUFFF!!!!!!!!!=: ", sql_idstr);
 
-
+        //Makes a version of the SQL database helper thing or something
         CCDataSQLhelper mDbHelper = new CCDataSQLhelper(this);
         db = mDbHelper.getWritableDatabase();
 
-        //wait its saying resourcecategory is null?
-        String[] selectionArgs = {sql_idstr};//"Books"}; //I actually want this to be from the button anyway, so make this an entry from the button.. instead of writing in book or wahteer here
-        //String[] selectionArgs = null;
+        //Makes an array called selectionArgs and puts the id of what we clicked on that we got from the ResourceCategory page
+        String[] selectionArgs = {sql_idstr};
         Cursor c = db.rawQuery("SELECT * FROM Resources WHERE id = ?", selectionArgs);
 
 
-
+        //TODO: WE SHOULD CHANGE THE NUMBER OF ENTRIES IN THE ARRAY SO THAT IT ACTUALLY GETS THE RIGHT NUMBER OR SOMETHING
+        //Makes an array of strings with 5 entries for resource info that will be later be given to the array adapter to populate the listview
         String[] resourceInfoArray = new String[5];
 
         /**
@@ -60,23 +60,24 @@ public class ViewResource extends AppCompatActivity {
          **/
 
 
-
-//Log.d("STUFF!!=: ", c.getString(c.getColumnIndex("name")));
-        //String uname = c.getString(c.getColumnIndex("name"));
+        //We don't know what the if loop is for but it doesn't work without it.
+        //Putting the information about the selected resource into an array and then putting that into our listview.
+        // Also, setting the title of the page as the name of the selected resource.
         if (c.moveToFirst()) {
 
 
-            String info = c.getString(c.getColumnIndex("category"));
+            String info = "Category: " + c.getString(c.getColumnIndex("category"));
             resourceInfoArray[0] = info;
-            info = c.getString(c.getColumnIndex("gradelevel"));
+            info = "Grade Levels: " + c.getString(c.getColumnIndex("gradelevel"));
             resourceInfoArray[1] = info;
-            info = c.getString(c.getColumnIndex("quantity"));
+            info = "Number of Units: " + c.getString(c.getColumnIndex("quantity"));
             resourceInfoArray[2] = info;
-            info = c.getString(c.getColumnIndex("dateAvailable"));
+            info = "Date Available: " + c.getString(c.getColumnIndex("dateAvailable"));
             resourceInfoArray[3] = info;
-            info = c.getString(c.getColumnIndex("contactInfo"));
+            info = "Contact Info: " + c.getString(c.getColumnIndex("contactInfo"));
             resourceInfoArray[4] = info;
 
+            setTitle(c.getString(c.getColumnIndex("name")));
 
             ArrayAdapter thisArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, resourceInfoArray);
             ListView resourceInfoList = (ListView) findViewById(R.id.resourceInfoList);
@@ -87,3 +88,5 @@ public class ViewResource extends AppCompatActivity {
     }
 
 }
+
+//Log.d("STUFF!!=: ", c.getString(c.getColumnIndex("name")));
