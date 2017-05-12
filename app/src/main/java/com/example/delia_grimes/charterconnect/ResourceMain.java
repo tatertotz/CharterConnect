@@ -47,7 +47,7 @@ public class ResourceMain extends AppCompatActivity {
         int screenWidth = displaymetrics.widthPixels;
 
         //Making a new screen configuration (part of the class I made) that takes the screen width and height as arguments.
-        ScreenConfigurations resourceMainScreen = new ScreenConfigurations(screenWidth, screenHeight, 7);
+        ScreenConfigurations resourceMainScreen = new ScreenConfigurations(screenWidth, screenHeight, 11);
 
 //        int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
 //        int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
@@ -176,7 +176,28 @@ public class ResourceMain extends AppCompatActivity {
 //        String cluck = Float.toString(addResourceGridLayout.getMinimumHeight());
 //        Log.i("cluck", cluck);
 
+        final Button mooButton = (Button) findViewById(R.id.mooButton);
+        resourceMainScreen.setButton(7, mooButton, "categoryButton"); //putting the artButton into the first slot of the array
+        mooButton.setMinHeight(resourceMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        mooButton.setMinWidth(resourceMainScreen.getButton(0).getMinWidth());
+
+        final Button woofButton = (Button) findViewById(R.id.woofButton);
+        resourceMainScreen.setButton(8, woofButton, "categoryButton"); //putting the artButton into the first slot of the array
+        woofButton.setMinHeight(resourceMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        woofButton.setMinWidth(resourceMainScreen.getButton(0).getMinWidth());
+
+        final Button meowButton = (Button) findViewById(R.id.meowButton);
+        resourceMainScreen.setButton(9, meowButton, "categoryButton"); //putting the artButton into the first slot of the array
+        meowButton.setMinHeight(resourceMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        meowButton.setMinWidth(resourceMainScreen.getButton(0).getMinWidth());
+
+        final Button quackButton = (Button) findViewById(R.id.quackButton);
+        resourceMainScreen.setButton(10, quackButton, "categoryButton"); //putting the artButton into the first slot of the array
+        quackButton.setMinHeight(resourceMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        quackButton.setMinWidth(resourceMainScreen.getButton(0).getMinWidth());
+
     }
+
 
     public void switchToEvents(View view) {
         Intent intent = new Intent(this, EventsMain.class);

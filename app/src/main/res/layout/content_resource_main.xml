@@ -57,7 +57,7 @@
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         android:rowCount="2"
-        android:columnCount="2"
+        android:columnCount="4"
         android:layout_centerInParent="true"
         android:id="@+id/gridLayout2">
 
@@ -68,6 +68,9 @@
             android:layout_column="1"
             android:layout_gravity="center"
             android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@color/pinkColor" />
 
         <Button
@@ -76,6 +79,10 @@
             android:layout_row="0"
             android:layout_column="1"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@color/pinkColor" />
 
 
@@ -85,6 +92,10 @@
             android:layout_row="0"
             android:layout_column="0"
             android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
             android:background="@color/pinkColor" />
 
         <Button
@@ -94,8 +105,59 @@
             android:layout_row="1"
             android:layout_column="0"
             android:layout_gravity="center"
-            android:background="@color/pinkColor"
-            android:layout_marginTop="10dp" />
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/pinkColor" />
+
+        <Button
+            android:text="Moo"
+            android:id="@+id/mooButton"
+            android:layout_row="0"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/pinkColor" />
+
+        <Button
+            android:text="Woof"
+            android:id="@+id/woofButton"
+            android:layout_row="1"
+            android:layout_column="2"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/pinkColor" />
+
+        <Button
+            android:text="Meow"
+            android:id="@+id/meowButton"
+            android:layout_row="0"
+            android:layout_column="3"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/pinkColor" />
+
+        <Button
+            android:text="Quack"
+            android:id="@+id/quackButton"
+            android:layout_row="1"
+            android:layout_column="3"
+            android:layout_gravity="center"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:background="@color/pinkColor" />
 
     </GridLayout>
 </HorizontalScrollView>
