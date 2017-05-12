@@ -21,7 +21,7 @@ public class ViewResource extends AppCompatActivity {
         setContentView(R.layout.activity_view_resource);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-//        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         //receive the intent
         Bundle extras = getIntent().getExtras();

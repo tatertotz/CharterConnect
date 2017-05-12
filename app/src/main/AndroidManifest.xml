@@ -79,10 +79,10 @@
             android:label="@string/title_activity_view_resource"
             android:theme="@style/AppTheme.NoActionBar"
             android:parentActivityName=".ResourceCategory">
-                <!--<meta-data-->
-                    <!--android:name="android.support.ResourceCategory"-->
-                    <!--android:value="com.example.delia_grimes.charterconnect">-->
-                <!--</meta-data>-->
+                <meta-data
+                    android:name="android.support.ResourceCategory"
+                    android:value="com.example.delia_grimes.charterconnect">
+                </meta-data>
         </activity>
         <activity
             android:name=".EventsMain"

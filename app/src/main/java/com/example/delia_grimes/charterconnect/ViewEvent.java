@@ -9,7 +9,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
 import android.view.View;
+import android.widget.ArrayAdapter;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.TextView;
 
 public class ViewEvent extends AppCompatActivity {
@@ -44,6 +46,8 @@ public class ViewEvent extends AppCompatActivity {
         //String[] selectionArgs = null;
         Cursor c = db.rawQuery("SELECT * FROM Events WHERE id = ?", selectionArgs);
 
+        String[] eventInfoArray = new String[9];
+
 
         //String[] thisrow = new String[10];
 
@@ -51,37 +55,29 @@ public class ViewEvent extends AppCompatActivity {
 //Log.d("STUFF!!=: ", c.getString(c.getColumnIndex("name")));
         //String uname = c.getString(c.getColumnIndex("name"));
         if (c.moveToFirst()) {
-            TextView textviewid;
 
-            //thisrow[0] = c.getString(c.getColumnIndex("name"));//c.getString(2);
-            textviewid = (TextView) findViewById(R.id.textView2);
-            textviewid.setText(c.getString(c.getColumnIndex("name")));
+            eventInfoArray[0] = "Host School: " + c.getString(c.getColumnIndex("hostSchool"));
+            eventInfoArray[1] = "Location: " + c.getString(c.getColumnIndex("location"));
+            eventInfoArray[2] = "Date: " + c.getString(c.getColumnIndex("date"));
+            eventInfoArray[3] = "Time: " + c.getString(c.getColumnIndex("time"));
+            eventInfoArray[4] = "Cost: " + c.getString(c.getColumnIndex("cost"));
+            eventInfoArray[5] = "Grade Levels: " + c.getString(c.getColumnIndex("gradelevel"));
+            eventInfoArray[6] = "Spaces Available" + c.getString(c.getColumnIndex("spacesAvailable"));
+            eventInfoArray[7] = "Contact Email Address: " + c.getString(c.getColumnIndex("emailAddress"));
+            eventInfoArray[8] = "Contact Host School: " + c.getString(c.getColumnIndex("phoneNumber"));
 
-            textviewid = (TextView) findViewById(R.id.textView3);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.HOST_SCHOOL)));
-            textviewid = (TextView) findViewById(R.id.textView4);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.LOCATION)));
-            textviewid = (TextView) findViewById(R.id.textView5);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.DATE)));
-            textviewid = (TextView) findViewById(R.id.textView6);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.TIME)));
-            textviewid = (TextView) findViewById(R.id.textView7);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.COST)));
-            textviewid = (TextView) findViewById(R.id.textView8);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.GRADELEVEL)));
-            textviewid = (TextView) findViewById(R.id.textView9);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.SPACES_AVAILABLE)));
-            textviewid = (TextView) findViewById(R.id.textView10);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.EMAIL_ADDRESS)));
-            textviewid = (TextView) findViewById(R.id.textView11);
-            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.PHONE_NUMBER)));
+            setTitle(c.getString(c.getColumnIndex("name")));
+
+            ArrayAdapter thisArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, eventInfoArray);
+            ListView eventInfoList = (ListView) findViewById(R.id.eventInfoList);
+            eventInfoList.setAdapter(thisArrayAdapter);
 
 
         }
 
+    }
 
-
-
+}
 
 //        values.put(CharterConnectDataSQL.Resources.NAME, gettext.getText().toString());
 
@@ -99,6 +95,28 @@ public class ViewEvent extends AppCompatActivity {
             i++;
             //System.out.println(uname);
         }*/
-    }
 
-}
+//            TextView textviewid;
+//
+//            //thisrow[0] = c.getString(c.getColumnIndex("name"));//c.getString(2);
+//            textviewid = (TextView) findViewById(R.id.textView2);
+//            textviewid.setText(c.getString(c.getColumnIndex("name")));
+//
+//            textviewid = (TextView) findViewById(R.id.textView3);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.HOST_SCHOOL)));
+//            textviewid = (TextView) findViewById(R.id.textView4);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.LOCATION)));
+//            textviewid = (TextView) findViewById(R.id.textView5);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.DATE)));
+//            textviewid = (TextView) findViewById(R.id.textView6);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.TIME)));
+//            textviewid = (TextView) findViewById(R.id.textView7);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.COST)));
+//            textviewid = (TextView) findViewById(R.id.textView8);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.GRADELEVEL)));
+//            textviewid = (TextView) findViewById(R.id.textView9);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.SPACES_AVAILABLE)));
+//            textviewid = (TextView) findViewById(R.id.textView10);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.EMAIL_ADDRESS)));
+//            textviewid = (TextView) findViewById(R.id.textView11);
+//            textviewid.setText(c.getString(c.getColumnIndex(CharterConnectDataSQL.Events.PHONE_NUMBER)));
