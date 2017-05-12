@@ -111,6 +111,8 @@ public class EventsMain extends AppCompatActivity {
         //////////////////////////////////////
         //Grab database, read in all of the values under the particular category, display them on scrolling list
 
+        setTitle("");
+
         CCDataSQLhelper mDbHelper = new CCDataSQLhelper(this);
         db = mDbHelper.getWritableDatabase();
 
