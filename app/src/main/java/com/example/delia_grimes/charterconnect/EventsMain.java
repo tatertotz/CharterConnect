@@ -51,25 +51,20 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.AdapterView.OnItemClickListener;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.SimpleCursorAdapter;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import static com.example.delia_grimes.charterconnect.R.id.listView2;
 
 public class EventsMain extends AppCompatActivity {
 
@@ -91,6 +86,14 @@ public class EventsMain extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 //        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
+        //Getting the screen's width and height
+        DisplayMetrics displaymetrics = new DisplayMetrics();
+        getWindowManager().getDefaultDisplay().getMetrics(displaymetrics);
+        int screenHeight = displaymetrics.heightPixels;
+        int screenWidth = displaymetrics.widthPixels;
+
+        ScreenConfigurations eventsMainScreen = new ScreenConfigurations(screenWidth, screenHeight, 3);
 
 
         //receive the intent
@@ -152,6 +155,21 @@ public class EventsMain extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+
+        Button resourcesButton = (Button) findViewById(R.id.resourcesButton);
+        eventsMainScreen.setButton(0, resourcesButton, ""); //putting the artButton into the first slot of the array
+        resourcesButton.setMinHeight(eventsMainScreen.getButton(0).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        resourcesButton.setMinWidth(eventsMainScreen.getButton(0).getMinWidth());
+
+        Button eventsButton = (Button) findViewById(R.id.eventsButton);
+        eventsMainScreen.setButton(1, eventsButton, ""); //putting the artButton into the first slot of the array
+        eventsButton.setMinHeight(eventsMainScreen.getButton(1).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        eventsButton.setMinWidth(eventsMainScreen.getButton(1).getMinWidth());
+
+        Button addEventButton = (Button) findViewById(R.id.addEvent);
+        eventsMainScreen.setButton(2, addEventButton, ""); //putting the artButton into the first slot of the array
+        addEventButton.setMinHeight(eventsMainScreen.getButton(2).getMinHeight()); //Setting the height to the corrected height that the screen configurations class gave me. You have to use minHeight not Height.
+        addEventButton.setMinWidth(eventsMainScreen.getButton(2).getMinWidth());
         //////////////////////////////////////
         //////////////////////////////////////
         //////////////////////////////////////

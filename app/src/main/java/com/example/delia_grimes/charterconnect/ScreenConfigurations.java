@@ -31,10 +31,12 @@ public class ScreenConfigurations {
     private void fixButtons(int button, String buttonType){
 
         if(buttonType == "categoryButton"){
-            int buttonHeight = (int)(screenHeight*0.25);    //Making a variable for the height of the buttons
-            int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
-            resourceMainButtons[button].setMinWidth(Math.min(buttonHeight, buttonWidth));
-            resourceMainButtons[button].setMinHeight(Math.min(buttonHeight, buttonWidth));
+            int buttonDimension = (int)(screenHeight*0.18);    //Making a variable for the height of the buttons
+//            int buttonWidth = (int)(screenWidth*0.25); //Making a variable for the width of the buttons
+            resourceMainButtons[button].setMinWidth(buttonDimension);
+            resourceMainButtons[button].setMinHeight(buttonDimension);
+//            resourceMainButtons[button].setMinWidth(Math.min(buttonHeight, buttonWidth));
+//            resourceMainButtons[button].setMinHeight(Math.min(buttonHeight, buttonWidth));
         }else{
             int buttonHeight = (int)(screenHeight*0.075);    //Making a variable for the height of the buttons
             int buttonWidth = (int)(screenWidth*0.35); //Making a variable for the width of the buttons

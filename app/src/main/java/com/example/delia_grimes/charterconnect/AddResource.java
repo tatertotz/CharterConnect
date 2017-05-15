@@ -14,6 +14,7 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Spinner;
+import android.widget.Toast;
 
 public class AddResource extends AppCompatActivity {
 
@@ -86,43 +87,48 @@ public class AddResource extends AppCompatActivity {
 
         Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
         String spinnerText = String.valueOf(categorySpinner.getSelectedItem());
-        values.put(CharterConnectDataSQL.Resources.CATEGORY, spinnerText); //putting category spinner selection into database
+        if (spinnerText.equals("Choose a Category")) {
+            Toast toast = Toast.makeText(this, "Choose a Category", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+        else {
+            values.put(CharterConnectDataSQL.Resources.CATEGORY, spinnerText); //putting category spinner selection into database
 
-        gettext = (EditText) findViewById(R.id.editResourceName);
-        values.put(CharterConnectDataSQL.Resources.NAME, gettext.getText().toString());
+            gettext = (EditText) findViewById(R.id.editResourceName);
+            values.put(CharterConnectDataSQL.Resources.NAME, gettext.getText().toString());
 
-        gettext = (EditText) findViewById(R.id.editGradeLevels);
-        values.put(CharterConnectDataSQL.Resources.GRADELEVEL, gettext.getText().toString());
+            gettext = (EditText) findViewById(R.id.editGradeLevels);
+            values.put(CharterConnectDataSQL.Resources.GRADELEVEL, gettext.getText().toString());
 
-        gettext = (EditText) findViewById(R.id.editUnits);
-        values.put(CharterConnectDataSQL.Resources.NUM_UNITS, gettext.getText().toString());
+            gettext = (EditText) findViewById(R.id.editUnits);
+            values.put(CharterConnectDataSQL.Resources.NUM_UNITS, gettext.getText().toString());
 
-        gettext = (EditText) findViewById(R.id.editDateAvailable);
-        values.put(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE, gettext.getText().toString());
+            gettext = (EditText) findViewById(R.id.editDateAvailable);
+            values.put(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE, gettext.getText().toString());
 
-        gettext = (EditText) findViewById(R.id.editContactEmail);
-        values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, gettext.getText().toString());
+            gettext = (EditText) findViewById(R.id.editContactEmail);
+            values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, gettext.getText().toString());
 
-
-        //query the full db and find out what the largest idx is,and set this idx as +1 of that
-        Integer thisidx = getNewDBIx();
-        values.put(CharterConnectDataSQL.Resources.COLUMN_NAME_ENTRY_ID, thisidx.toString());
-
-
-        long newRowId;
-        newRowId = db.insert(
-                CharterConnectDataSQL.Resources.TABLE_NAME,
-                null,
-                values);
+            //query the full db and find out what the largest idx is,and set this idx as +1 of that
+            Integer thisidx = getNewDBIx();
+            values.put(CharterConnectDataSQL.Resources.COLUMN_NAME_ENTRY_ID, thisidx.toString());
 
 
-        //final String buttontext = thisbutton.getText().toString();
+            long newRowId;
+            newRowId = db.insert(
+                    CharterConnectDataSQL.Resources.TABLE_NAME,
+                    null,
+                    values);
 
-        //GUYS WHEN YOU SWITCH TO RESOURCECATEGORY THE INTENT HAS TO CONTAIN WHICH RESOURCE YOU ARE
-        //VIEWING OR ELSE HUGE BUGZZZZ
-        Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
-        intent.putExtra("resourcecategory", spinnerText);//you need to grab whatever category the person just wrote
-        startActivity(intent);
+
+            //final String buttontext = thisbutton.getText().toString();
+
+            //GUYS WHEN YOU SWITCH TO RESOURCECATEGORY THE INTENT HAS TO CONTAIN WHICH RESOURCE YOU ARE
+            //VIEWING OR ELSE HUGE BUGZZZZ
+            Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
+            intent.putExtra("resourcecategory", spinnerText);//you need to grab whatever category the person just wrote
+            startActivity(intent);
+        }
     }
 
     //find the max index in database, then add 1 to it and return value to be entered in DB
