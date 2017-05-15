@@ -12,4 +12,23 @@
     tools:context="com.example.delia_grimes.charterconnect.SchoolProfile"
     tools:showIn="@layout/activity_school_profile">
 
+    <GridLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:rowCount="2"
+        android:columnCount="2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:text="TextView"
+            android:textSize="30sp"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_columnSpan="2"
+            android:gravity="center"
+            android:id="@+id/textView" />
+
+    </GridLayout>
+
 </RelativeLayout>
