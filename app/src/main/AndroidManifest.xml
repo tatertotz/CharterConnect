@@ -74,20 +74,24 @@
                     android:value="com.example.delia_grimes.charterconnect">
                 </meta-data>
         </activity>
+
         <activity
             android:name=".ViewResource"
             android:label="@string/title_activity_view_resource"
             android:theme="@style/AppTheme.NoActionBar"
+            android:launchMode="singleTask"
             android:parentActivityName=".ResourceCategory">
                 <meta-data
                     android:name="android.support.ResourceCategory"
                     android:value="com.example.delia_grimes.charterconnect">
                 </meta-data>
         </activity>
+
         <activity
             android:name=".EventsMain"
             android:label="@string/title_activity_events_main"
             android:theme="@style/AppTheme.NoActionBar"/>
+
         <activity
             android:name=".ResourceMain"
             android:label="@string/title_activity_resource_main"
@@ -97,6 +101,7 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
         <!--
      ATTENTION: This was auto-generated to add Google Play services to your project for
      App Indexing.  See https://g.co/AppIndexing/AndroidStudio for more information.
@@ -110,6 +115,7 @@
             android:label="@string/title_activity_start_screen"
             android:theme="@style/AppTheme.NoActionBar">
         </activity>
+
     </application>
 
 </manifest>

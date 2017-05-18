@@ -1,19 +1,19 @@
 package com.example.delia_grimes.charterconnect;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
+import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.view.View;
+import android.view.MenuItem;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class ViewResource extends AppCompatActivity {
     SQLiteDatabase db;
+    String categoryName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -65,6 +65,7 @@ public class ViewResource extends AppCompatActivity {
         // Also, setting the title of the page as the name of the selected resource.
         if (c.moveToFirst()) {
 
+            categoryName = c.getString(c.getColumnIndex("category"));
 
             String info = "Category: " + c.getString(c.getColumnIndex("category"));
             resourceInfoArray[0] = info;
@@ -85,6 +86,24 @@ public class ViewResource extends AppCompatActivity {
 
         }
 
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                NavUtils.navigateUpFromSameTask(this);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    @Override
+    public Intent getParentActivityIntent() {
+        Intent parent = super.getParentActivityIntent();
+        parent.putExtra("resourcecategory", categoryName);
+        return parent;
     }
 
 }

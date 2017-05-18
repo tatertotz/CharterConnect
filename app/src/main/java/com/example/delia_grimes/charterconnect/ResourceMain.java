@@ -9,7 +9,6 @@ import android.util.DisplayMetrics;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
-import android.widget.GridLayout;
 
 /*
 //cannot resolve symbol android
@@ -224,7 +223,7 @@ public class ResourceMain extends AppCompatActivity {
 
 
 
-        intent.putExtra("resourcecategory", buttontext );
+        intent.putExtra("resourcecategory", buttontext);
         startActivity(intent);
     }
 
