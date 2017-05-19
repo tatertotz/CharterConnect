@@ -210,6 +210,11 @@ public class ResourceMain extends AppCompatActivity {
 
     }
 
+    public void switchToSchoolProfile(View view) {
+        Intent intent  = new Intent(this, SchoolProfile.class);
+        startActivity(intent);
+    }
+
     //created so that its only one function to switch apps when you switch screens
 
     private void resourcemainSwitchScreen(View v, Button thisbutton) {
