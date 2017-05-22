@@ -47,7 +47,7 @@
             android:layout_height="157dp"
             android:src="@drawable/person_logo"
             android:layout_marginTop="10dp"
-            android:layout_rowSpan="4"
+            android:layout_rowSpan="3"
             android:layout_row="1"
             android:layout_column="0"
             android:layout_margin="10dp"
@@ -55,7 +55,7 @@
 
         <TextView
             android:text="Grades: "
-            android:layout_row="4"
+            android:layout_row="3"
             android:layout_column="1"
             android:layout_gravity="fill_horizontal"
             android:layout_width="wrap_content"
@@ -65,7 +65,7 @@
 
         <TextView
             android:text="Mission Statement: "
-            android:layout_row="5"
+            android:layout_row="4"
             android:layout_column="0"
             android:layout_columnSpan="2"
             android:layout_gravity="fill_horizontal"
@@ -84,9 +84,10 @@
             style="?android:attr/borderlessButtonStyle"/>
 
         <Button
-            android:layout_row="3"
-            android:layout_column="1"
-            android:text="Phone Number: "
+            android:layout_row="5"
+            android:layout_column="0"
+            android:layout_columnSpan="2"
+            android:text="Contact Info: "
             android:layout_gravity="fill_horizontal"
             android:layout_width="wrap_content"
             android:gravity="start"
