@@ -34,7 +34,6 @@ public final class CharterConnectDataSQL {
         private static final String NUM_TYPE = " INT";
         private static final String COMMA_SEP = ",";
 
-        //does calling create table erase teh current table?
         public static final String SQL_CREATE_ENTRIES =
                 //"CREATE TABLE " + TABLE_NAME + " (" +
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
@@ -108,5 +107,33 @@ public final class CharterConnectDataSQL {
 
     }
 
+    public static abstract class Schools implements BaseColumns {
+        public static final String TABLE_NAME = "Schools";
+        public static final String COLUMN_NAME_ENTRY_ID = "id";
+        public static final String SCHOOL_NAME = "schoolName";
+        public static final String URL = "url";
+        public static final String ADDRESS = "address";
+        public static final String GRADES = "grades";
+        public static final String MISSION_STATEMENT = "missionStatement";
+        public static final String CONTACT_INFO = "contactInfo";
+        public static final String COLUMN_NAME_NULLABLE="canbenull";
+
+        private static final String TEXT_TYPE = " TEXT";
+        private static final String NUM_TYPE = " INT";
+        private static final String COMMA_SEP = ",";
+
+        public static final String SQL_CREATE_ENTRIES =
+                "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
+                        _ID + " INTEGER PRIMARY KEY," +
+                        TABLE_NAME + TEXT_TYPE + COMMA_SEP +
+                        COLUMN_NAME_ENTRY_ID + TEXT_TYPE + COMMA_SEP +
+                        SCHOOL_NAME + TEXT_TYPE + COMMA_SEP +
+                        URL + TEXT_TYPE + COMMA_SEP +
+                        ADDRESS + TEXT_TYPE + COMMA_SEP +
+                        GRADES + TEXT_TYPE + COMMA_SEP +
+                        MISSION_STATEMENT + TEXT_TYPE + COMMA_SEP +
+                        CONTACT_INFO + TEXT_TYPE + COMMA_SEP +
+                        COLUMN_NAME_NULLABLE + TEXT_TYPE  + " )";
+    }
 
 }

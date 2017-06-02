@@ -3,13 +3,10 @@ package com.example.delia_grimes.charterconnect;
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
+import android.util.Log;
 
 /**
  */
-import android.content.Context;
-import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteOpenHelper;
-import android.util.Log;
 
 
 
@@ -38,6 +35,9 @@ public class CCDataSQLhelper extends SQLiteOpenHelper {
     private static final String SQL_DELETE_ENTRIES_EVENTS =
             "DROP TABLE IF EXISTS " + CharterConnectDataSQL.Events.TABLE_NAME;
 
+    private static final String SQL_DELETE_ENTRIES_SCHOOLS =
+            "DROP TABLE IF EXISTS " + CharterConnectDataSQL.Schools.TABLE_NAME;
+
 
     public CCDataSQLhelper(Context context) {
         //new SQLiteOpenHelper(context, CharterConnectDataSQL.Resources.DATABASE_NAME, null, DATABASE_VERSION);
@@ -49,6 +49,7 @@ public class CCDataSQLhelper extends SQLiteOpenHelper {
         //db.execSQL(SQL_DELETE_ENTRIES); //GET RID OF THIS!! JUST USE IT FOR NOW SINCE I CANT ACCESS DB
         db.execSQL(CharterConnectDataSQL.Events.SQL_CREATE_ENTRIES);
         db.execSQL(CharterConnectDataSQL.Resources.SQL_CREATE_ENTRIES);
+        db.execSQL(CharterConnectDataSQL.Schools.SQL_CREATE_ENTRIES);
     }
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
         // This database is only a cache for online data, so its upgrade policy is
@@ -58,6 +59,7 @@ public class CCDataSQLhelper extends SQLiteOpenHelper {
         Log.w("myApp","HAI");
         db.execSQL(SQL_DELETE_ENTRIES_RESOURCES);
         db.execSQL(SQL_DELETE_ENTRIES_EVENTS);
+        db.execSQL(SQL_DELETE_ENTRIES_SCHOOLS);
         onCreate(db);
     }
     public void onDowngrade(SQLiteDatabase db, int oldVersion, int newVersion) {
