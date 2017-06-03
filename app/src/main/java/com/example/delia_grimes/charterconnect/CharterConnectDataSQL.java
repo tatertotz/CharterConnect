@@ -124,7 +124,7 @@ public final class CharterConnectDataSQL {
 
         public static final String SQL_CREATE_ENTRIES =
                 "CREATE TABLE IF NOT EXISTS " + TABLE_NAME + " (" +
-                        _ID + " INTEGER PRIMARY KEY," +
+                        _ID + " INTEGER PRIMARY KEY AUTOINCREMENT," +
                         TABLE_NAME + TEXT_TYPE + COMMA_SEP +
                         COLUMN_NAME_ENTRY_ID + TEXT_TYPE + COMMA_SEP +
                         SCHOOL_NAME + TEXT_TYPE + COMMA_SEP +
@@ -132,8 +132,7 @@ public final class CharterConnectDataSQL {
                         ADDRESS + TEXT_TYPE + COMMA_SEP +
                         GRADES + TEXT_TYPE + COMMA_SEP +
                         MISSION_STATEMENT + TEXT_TYPE + COMMA_SEP +
-                        CONTACT_INFO + TEXT_TYPE + COMMA_SEP +
-                        COLUMN_NAME_NULLABLE + TEXT_TYPE  + " )";
+                        CONTACT_INFO + TEXT_TYPE + " )";
     }
 
 }
