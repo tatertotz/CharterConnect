@@ -3,11 +3,12 @@ package com.example.delia_grimes.charterconnect;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
+import android.database.sqlite.SQLiteException;
+import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MotionEvent;
@@ -15,9 +16,14 @@ import android.view.View;
 import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.SimpleCursorAdapter;
+import android.widget.Spinner;
+import android.widget.Toast;
 
 public class AddEvent extends AppCompatActivity {
     SQLiteDatabase db;
+    Cursor schoolsCursor;
+    SimpleCursorAdapter schoolsAdapter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,16 +34,33 @@ public class AddEvent extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
         final Button saveButton = (Button) findViewById(R.id.eventsSaveButton);
-        //final String scienceButtonText = scienceButton.getText().toString();
         saveButton.setOnClickListener(new View.OnClickListener() {
             //onClick(View v, Button scienceButton);
             public void onClick(View v) {
                 saveEvent(v, saveButton);
-                /*Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
-                intent.putExtra("resourcecategory", scienceButtonText );
-                startActivity(intent);*/
             }
         });
+
+        //Create a cursor in order to populate the spinner
+        try {
+            SQLiteOpenHelper schoolsDatabaseHelper = new CCDataSQLhelper(this);
+            db = schoolsDatabaseHelper.getReadableDatabase();
+            schoolsCursor = db.query("Resources", new String[] {"_id", "category"},
+                    null, null, null, null, null);
+            schoolsAdapter = new SimpleCursorAdapter(this,
+                    android.R.layout.simple_spinner_item, schoolsCursor, new String[] {"category"},
+                    new int[] {android.R.id.text1}, 0);
+
+            schoolsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+
+        } catch (SQLiteException e) {
+            Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
+            toast.show();
+        }
+
+        //Get the spinner and put the adapter into the spinner
+        Spinner schoolsSpinner = (Spinner) findViewById(R.id.hostSchoolsSpinner);
+        schoolsSpinner.setAdapter(schoolsAdapter);
 
     }
 
@@ -127,5 +150,12 @@ public class AddEvent extends AppCompatActivity {
         return thisidx;
 
     }
+
+//    @Override
+//    public void onDestroy() {
+//        super.onDestroy();
+//        schoolsCursor.close();
+//        db.close();
+//    }
 
 }
