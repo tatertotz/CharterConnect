@@ -54,13 +54,12 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.DisplayMetrics;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemClickListener;
-import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.SimpleCursorAdapter;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
@@ -124,28 +123,39 @@ public class EventsMain extends AppCompatActivity {
         String[] selectionArgs =null;
         Cursor c = db.rawQuery("SELECT * FROM Events",selectionArgs );// WHERE category = ?", selectionArgs);
 
-        //rawquery("SELECT ? FROM ? WHERE ? = ?",mtx);
-        String[] namearray = new String[c.getCount()];
-        final String[] idarray = new String[c.getCount()];
-        int i=0;
-        while(c.moveToNext())
-        {
-            String uname = c.getString(c.getColumnIndex("name"));
-            namearray[i] = uname;
+        SimpleCursorAdapter listAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1,
+                c, new String[] {"name"}, new int[] {android.R.id.text1}, 0);
 
+        final String[] idarray = new String[c.getCount()];
+        int i = 0;
+        while(c.moveToNext()) {
             String uid = c.getString(c.getColumnIndex("id"));
             idarray[i] = uid;
-            Log.d("WOOHOO!!=: ", uid);
-
             i++;
-            //System.out.println(uname);
         }
+
+        //rawquery("SELECT ? FROM ? WHERE ? = ?",mtx);
+//        String[] namearray = new String[c.getCount()];
+//        final String[] idarray = new String[c.getCount()];
+//        int i=0;
+//        while(c.moveToNext())
+//        {
+//            String uname = c.getString(c.getColumnIndex("name"));
+//            namearray[i] = uname;
+//
+//            String uid = c.getString(c.getColumnIndex("id"));
+//            idarray[i] = uid;
+//            Log.d("WOOHOO!!=: ", uid);
+//
+//            i++;
+//            //System.out.println(uname);
+//        }
 
         //addRandomItem(mDbHelper); //add a random item
 
-        ArrayAdapter thisArrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,namearray);
+//        ArrayAdapter thisArrayAdapter = new ArrayAdapter(this,android.R.layout.simple_list_item_1,namearray);
         ListView thislist = (ListView) findViewById(R.id.listView2);
-        thislist.setAdapter(thisArrayAdapter);
+        thislist.setAdapter(listAdapter);
 
         thislist.setOnItemClickListener(new OnItemClickListener() {
             @Override
