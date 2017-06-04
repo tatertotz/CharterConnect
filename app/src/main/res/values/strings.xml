@@ -45,6 +45,7 @@
     <string name="date_available">Date Available</string>
     <string name="contact_email">Contact Email</string>
     <string name="description">Description</string>
+    <string name="chooseCategory">Choose a Category</string>
 
     <array name="resource_types">
         <item>Choose a Category</item>
