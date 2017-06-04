@@ -5,8 +5,6 @@ import android.content.Context;
 import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
-import android.database.sqlite.SQLiteException;
-import android.database.sqlite.SQLiteOpenHelper;
 import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -17,8 +15,6 @@ import android.view.inputmethod.InputMethodManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
-import android.widget.Spinner;
-import android.widget.Toast;
 
 public class AddEvent extends AppCompatActivity {
     SQLiteDatabase db;
@@ -41,26 +37,57 @@ public class AddEvent extends AppCompatActivity {
             }
         });
 
-        //Create a cursor in order to populate the spinner
-        try {
-            SQLiteOpenHelper schoolsDatabaseHelper = new CCDataSQLhelper(this);
-            db = schoolsDatabaseHelper.getReadableDatabase();
-            schoolsCursor = db.query("Resources", new String[] {"_id", "category"},
-                    null, null, null, null, null);
-            schoolsAdapter = new SimpleCursorAdapter(this,
-                    android.R.layout.simple_spinner_item, schoolsCursor, new String[] {"category"},
-                    new int[] {android.R.id.text1}, 0);
+//        SQLiteOpenHelper schoolsDatabaseHelper = new CCDataSQLhelper(this);
+//        db = schoolsDatabaseHelper.getReadableDatabase();
+//        schoolsCursor = db.query("Resources", new String[] {"category"},
+//                null, null, null, null, null);
+//
+//        String[] schoolsArray = new String[schoolsCursor.getCount()];
+//        int i = 0;
+//        while (schoolsCursor.moveToNext()) {
+//            schoolsArray[i] = schoolsCursor.getString(1);
+//            i++;
+//        }
+//
+//        ArrayAdapter schoolsArrayAdapter = new ArrayAdapter(this,
+//                android.R.layout.simple_list_item_1, schoolsArray);
+//
+//        Spinner schoolsSpinner = (Spinner) findViewById(R.id.hostSchoolsSpinner);
+//        schoolsSpinner.setAdapter(schoolsAdapter);
+//
+//        schoolsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
+//            @Override
+//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
+//                //
+//            }
+//
+//            @Override
+//            public void onNothingSelected(AdapterView<?> adapterView) {
+//                //
+//            }
+//        });
 
-            schoolsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-
-        } catch (SQLiteException e) {
-            Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
-            toast.show();
-        }
-
-        //Get the spinner and put the adapter into the spinner
-        Spinner schoolsSpinner = (Spinner) findViewById(R.id.hostSchoolsSpinner);
-        schoolsSpinner.setAdapter(schoolsAdapter);
+        //Here, I'm trying to go about it using a CursorAdapter, but it's not working
+//        //Create a cursor in order to populate the spinner
+//        try {
+//            SQLiteOpenHelper schoolsDatabaseHelper = new CCDataSQLhelper(this);
+//            db = schoolsDatabaseHelper.getReadableDatabase();
+//            schoolsCursor = db.query("Resources", new String[] {"_id", "category"},
+//                    null, null, null, null, null);
+//            schoolsAdapter = new SimpleCursorAdapter(this,
+//                    android.R.layout.simple_spinner_item, schoolsCursor, new String[] {"category"},
+//                    new int[] {android.R.id.text1}, 0);
+//
+//            schoolsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
+//
+//            //Get the spinner and put the adapter into the spinner
+//            Spinner schoolsSpinner = (Spinner) findViewById(R.id.hostSchoolsSpinner);
+//            schoolsSpinner.setAdapter(schoolsAdapter);
+//
+//        } catch (SQLiteException e) {
+//            Toast toast = Toast.makeText(this, "Database unavailable", Toast.LENGTH_SHORT);
+//            toast.show();
+//        }
 
     }
 
