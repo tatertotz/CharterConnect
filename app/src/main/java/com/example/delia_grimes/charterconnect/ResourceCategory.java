@@ -6,23 +6,16 @@ import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.net.Uri;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
 import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 
 import com.google.android.gms.appindexing.Action;
 import com.google.android.gms.appindexing.AppIndex;
 import com.google.android.gms.common.api.GoogleApiClient;
-
-import static com.example.delia_grimes.charterconnect.R.id.resourceCategoryList;
 
 public class ResourceCategory extends AppCompatActivity {
 
@@ -71,26 +64,37 @@ public class ResourceCategory extends AppCompatActivity {
         String[] selectionArgs = {resourcecategory};//"Books"}; //I actually want this to be from the button anyway, so make this an entry from the button.. instead of writing in book or wahteer here
         Cursor c = db.rawQuery("SELECT * FROM Resources WHERE category = ?", selectionArgs);
 
-        String[] namearray = new String[c.getCount()];
-        final String[] idarray = new String[c.getCount()];
-        int i=0;
-        while(c.moveToNext())
-        {
-            String uname = c.getString(c.getColumnIndex("name"));
-            namearray[i] = uname;
+        SimpleCursorAdapter listAdapter = new SimpleCursorAdapter(this, android.R.layout.simple_list_item_1,
+                c, new String[] {"name"}, new int[] {android.R.id.text1}, 0);
 
+        final String[] idarray = new String[c.getCount()];
+        int i = 0;
+        while(c.moveToNext()) {
             String uid = c.getString(c.getColumnIndex("id"));
             idarray[i] = uid;
-
             i++;
-            //System.out.println(uname);
         }
+
+//        String[] namearray = new String[c.getCount()];
+//        final String[] idarray = new String[c.getCount()];
+//        int i=0;
+//        while(c.moveToNext())
+//        {
+//            String uname = c.getString(c.getColumnIndex("name"));
+//            namearray[i] = uname;
+//
+//            String uid = c.getString(c.getColumnIndex("id"));
+//            idarray[i] = uid;
+//
+//            i++;
+//            //System.out.println(uname);
+//        }
 
 
         //addRandomItem(mDbHelper);
-        ArrayAdapter thisArrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,namearray);
+//        ArrayAdapter thisArrayAdapter=new ArrayAdapter(this,android.R.layout.simple_list_item_1,namearray);
         ListView resourceCategoryList = (ListView) findViewById(R.id.resourceCategoryList);
-        resourceCategoryList.setAdapter(thisArrayAdapter);
+        resourceCategoryList.setAdapter(listAdapter);
 
         resourceCategoryList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
