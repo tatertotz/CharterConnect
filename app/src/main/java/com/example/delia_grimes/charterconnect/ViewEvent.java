@@ -1,22 +1,20 @@
 package com.example.delia_grimes.charterconnect;
 
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.EditText;
 import android.widget.ListView;
-import android.widget.TextView;
 
 public class ViewEvent extends AppCompatActivity {
 
     SQLiteDatabase db;
+    String hostSchool;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +44,7 @@ public class ViewEvent extends AppCompatActivity {
         //String[] selectionArgs = null;
         Cursor c = db.rawQuery("SELECT * FROM Events WHERE id = ?", selectionArgs);
 
-        String[] eventInfoArray = new String[9];
+        final String[] eventInfoArray = new String[9];
 
 
         //String[] thisrow = new String[10];
@@ -57,6 +55,7 @@ public class ViewEvent extends AppCompatActivity {
         if (c.moveToFirst()) {
 
             eventInfoArray[0] = "Host School: " + c.getString(c.getColumnIndex("hostSchool"));
+            hostSchool = c.getString(c.getColumnIndex("hostSchool"));
             eventInfoArray[1] = "Location: " + c.getString(c.getColumnIndex("location"));
             eventInfoArray[2] = "Date: " + c.getString(c.getColumnIndex("date"));
             eventInfoArray[3] = "Time: " + c.getString(c.getColumnIndex("time"));
@@ -71,9 +70,20 @@ public class ViewEvent extends AppCompatActivity {
             ArrayAdapter thisArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, eventInfoArray);
             ListView eventInfoList = (ListView) findViewById(R.id.eventInfoList);
             eventInfoList.setAdapter(thisArrayAdapter);
-
-
         }
+
+        ListView eventInfoList = (ListView) findViewById(R.id.eventInfoList);
+
+        eventInfoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    Intent intent = new Intent(ViewEvent.this, SchoolProfile.class);
+                    intent.putExtra("whichSchool", hostSchool);
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
 
