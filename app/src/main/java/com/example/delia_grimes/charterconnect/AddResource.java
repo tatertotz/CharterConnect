@@ -18,6 +18,9 @@ import android.widget.Toast;
 
 public class AddResource extends AppCompatActivity {
 
+    ContentValues values; //Initialize a content value so that later, you can put data into it to eventually put it in the database.
+    EditText gettext; //Initialize an EditText variable so that later you can use it to get the values of the EditText fields.
+
     SQLiteDatabase db;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,7 +30,7 @@ public class AddResource extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        //Get the save button and then when it is clicked, it calls saveResource
+        //Get the save button and then when it is clicked, it calls saveResource which saves the resource
         final Button saveButton = (Button) findViewById(R.id.saveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             //onClick(View v, Button scienceButton);
@@ -53,10 +56,7 @@ public class AddResource extends AppCompatActivity {
         db=mDbHelper.getWritableDatabase();
 
         //Make a content values so that you can put data into it later in order to put it into the database.
-        ContentValues values = new ContentValues();
-
-        //Initialize an EditText variable so that later you can use it to get the values of the EditText fields.
-        EditText gettext;
+        values = new ContentValues();
 
         //Get the spinner so that you can get the value of it.
         Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
@@ -70,21 +70,12 @@ public class AddResource extends AppCompatActivity {
         }
         else {
             values.put(CharterConnectDataSQL.Resources.CATEGORY, spinnerText); //putting category spinner selection into database
-
-            gettext = (EditText) findViewById(R.id.editResourceName);
-            values.put(CharterConnectDataSQL.Resources.NAME, gettext.getText().toString());
-
-            gettext = (EditText) findViewById(R.id.editGradeLevels);
-            values.put(CharterConnectDataSQL.Resources.GRADELEVEL, gettext.getText().toString());
-
-            gettext = (EditText) findViewById(R.id.editUnits);
-            values.put(CharterConnectDataSQL.Resources.NUM_UNITS, gettext.getText().toString());
-
-            gettext = (EditText) findViewById(R.id.editDateAvailable);
-            values.put(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE, gettext.getText().toString());
-
-            gettext = (EditText) findViewById(R.id.editContactEmail);
-            values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, gettext.getText().toString());
+            //Put all the values from the editTexts into the database.
+            editTextToDatabase(R.id.editResourceName, CharterConnectDataSQL.Resources.NAME);
+            editTextToDatabase(R.id.editGradeLevels, CharterConnectDataSQL.Resources.GRADELEVEL);
+            editTextToDatabase(R.id.editUnits, CharterConnectDataSQL.Resources.NUM_UNITS);
+            editTextToDatabase(R.id.editDateAvailable, CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE);
+            editTextToDatabase(R.id.editContactEmail, CharterConnectDataSQL.Resources.CONTACT_INFO);
 
             //This queries the full database and find out what the largest idx (index number?( is, and sets this idx as +1 of that
             Integer thisidx = getNewDBIx();
@@ -115,6 +106,11 @@ public class AddResource extends AppCompatActivity {
         //remember to add 1 to whatever value I get before outputting
         return thisidx;
 
+    }
+
+    private void editTextToDatabase(int editTextId, String databaseSlot) {
+        gettext = (EditText) findViewById(editTextId);
+        values.put(databaseSlot, gettext.getText().toString());
     }
 
 }
