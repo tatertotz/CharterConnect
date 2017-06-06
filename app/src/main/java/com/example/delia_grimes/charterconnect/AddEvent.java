@@ -11,15 +11,16 @@ import android.database.sqlite.SQLiteStatement;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.inputmethod.InputMethodManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SimpleCursorAdapter;
 import android.widget.Spinner;
 import android.widget.Toast;
-import android.util.Log;
 
 public class AddEvent extends AppCompatActivity {
     SQLiteDatabase db;
@@ -34,6 +35,7 @@ public class AddEvent extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Get the save button and then when it is clicked, it calls saveEvent which saves the event
         final Button saveButton = (Button) findViewById(R.id.eventsSaveButton);
         saveButton.setOnClickListener(new View.OnClickListener() {
             //onClick(View v, Button scienceButton);
@@ -42,38 +44,7 @@ public class AddEvent extends AppCompatActivity {
             }
         });
 
-//        SQLiteOpenHelper schoolsDatabaseHelper = new CCDataSQLhelper(this);
-//        db = schoolsDatabaseHelper.getReadableDatabase();
-//        schoolsCursor = db.query("Resources", new String[] {"category"},
-//                null, null, null, null, null);
-//
-//        String[] schoolsArray = new String[schoolsCursor.getCount()];
-//        int i = 0;
-//        while (schoolsCursor.moveToNext()) {
-//            schoolsArray[i] = schoolsCursor.getString(1);
-//            i++;
-//        }
-//
-//        ArrayAdapter schoolsArrayAdapter = new ArrayAdapter(this,
-//                android.R.layout.simple_list_item_1, schoolsArray);
-//
-//        Spinner schoolsSpinner = (Spinner) findViewById(R.id.hostSchoolsSpinner);
-//        schoolsSpinner.setAdapter(schoolsAdapter);
-//
-//        schoolsSpinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-//            @Override
-//            public void onItemSelected(AdapterView<?> adapterView, View view, int i, long l) {
-//                //
-//            }
-//
-//            @Override
-//            public void onNothingSelected(AdapterView<?> adapterView) {
-//                //
-//            }
-//        });
-
-        //Here, I'm trying to go about it using a CursorAdapter, but it's not working
-        //Create a cursor in order to populate the spinner
+        //Creates a cursor in order to populate the spinner
         try {
             SQLiteOpenHelper schoolsDatabaseHelper = new CCDataSQLhelper(this);
             db = schoolsDatabaseHelper.getReadableDatabase();
@@ -81,9 +52,19 @@ public class AddEvent extends AppCompatActivity {
 //                    null, null, null, null, null);
             schoolsCursor = db.rawQuery("SELECT * FROM Schools", null);
 
-            schoolsAdapter = new SimpleCursorAdapter(this,
-                    android.R.layout.simple_spinner_item, schoolsCursor, new String[] {"schoolName"},
-                    new int[] {android.R.id.text1}, 0);
+            /*I tried to do this all with a SimpleCursorAdapter, but it wasn't working, because when it put the value of the
+            spinner into the database, it would put the Cursor (ex. android:database.sqlite.SQLiteCursor@3988439). So, the
+            array and array adapter worked better*/
+
+            final String[] schoolsArray = new String[schoolsCursor.getCount()];
+            int ii = 0;
+            while(schoolsCursor.moveToNext()) {
+                String schoolName = schoolsCursor.getString(schoolsCursor.getColumnIndex("schoolName"));
+                schoolsArray[ii] = schoolName;
+                ii++;
+            }
+
+            ArrayAdapter schoolsAdapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, schoolsArray);
 
             schoolsAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
 
@@ -111,15 +92,21 @@ public class AddEvent extends AppCompatActivity {
         CCDataSQLhelper mDbHelper = new CCDataSQLhelper(this);
         db=mDbHelper.getWritableDatabase();
 
+        Spinner hostSchoolsSpinner = (Spinner) findViewById(R.id.hostSchoolsSpinner);
+        String spinnerText = String.valueOf(hostSchoolsSpinner.getSelectedItem());
+        Log.d("Spinner Text", spinnerText);
+
         ContentValues values = new ContentValues(); //make an entry
+
+        values.put(CharterConnectDataSQL.Events.HOST_SCHOOL, spinnerText);
 
         EditText gettext;
         gettext = (EditText) findViewById(R.id.eventName);
         String new_entry_category=gettext.getText().toString();
         values.put(CharterConnectDataSQL.Events.NAME, new_entry_category); //this shoudl be inserting
 
-        gettext = (EditText) findViewById(R.id.hostSchool);
-        values.put(CharterConnectDataSQL.Events.HOST_SCHOOL, gettext.getText().toString());
+//        gettext = (EditText) findViewById(R.id.hostSchool);
+//        values.put(CharterConnectDataSQL.Events.HOST_SCHOOL, gettext.getText().toString());
 
         gettext = (EditText) findViewById(R.id.location);
         values.put(CharterConnectDataSQL.Events.LOCATION, gettext.getText().toString());
