@@ -27,47 +27,17 @@ public class AddResource extends AppCompatActivity {
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
+        //Get the save button and then when it is clicked, it calls saveResource
         final Button saveButton = (Button) findViewById(R.id.saveButton);
-        //final String scienceButtonText = scienceButton.getText().toString();
         saveButton.setOnClickListener(new View.OnClickListener() {
             //onClick(View v, Button scienceButton);
             public void onClick(View v) {
                 saveResource(v, saveButton);
-                /*Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
-                intent.putExtra("resourcecategory", scienceButtonText );
-                startActivity(intent);*/
             }
         });
-
-
-//        EditText edittext;
-
-//        edittext = (EditText) findViewById(R.id.editCategory);
-//        InputMethodManager mgr = (InputMethodManager) getSystemService(v.getContext().INPUT_METHOD_SERVICE);
-//        mgr.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
-//
-//        edittext = (EditText) findViewById(R.id.editResourceName);
-//        InputMethodManager mgr2 = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        mgr2.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
-//
-//        edittext = (EditText) findViewById(R.id.editGradeLevels);
-//        InputMethodManager mgr3 = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        mgr3.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
-//
-//        edittext = (EditText) findViewById(R.id.editUnits);
-//        InputMethodManager mgr4 = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        mgr4.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
-//
-//        edittext = (EditText) findViewById(R.id.editDateAvailable);
-//        InputMethodManager mgr5 = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        mgr5.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
-//
-//        edittext = (EditText) findViewById(R.id.editContactEmail);
-//        InputMethodManager mgr6 = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
-//        mgr6.hideSoftInputFromWindow(edittext.getWindowToken(), 0);
-
     }
 
+    //I honestly don't know what this does...
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         InputMethodManager imm = (InputMethodManager) getSystemService(Context.INPUT_METHOD_SERVICE);
@@ -75,17 +45,24 @@ public class AddResource extends AppCompatActivity {
         return true;
     }
 
+    //This is what the function saveResource does
     private void saveResource(View v, Button thisbutton) {
 
-
+        //Get a SQL helper for the database so that you can add the values to the database.
         CCDataSQLhelper mDbHelper = new CCDataSQLhelper(this);
         db=mDbHelper.getWritableDatabase();
 
-        ContentValues values = new ContentValues(); //make an entry
+        //Make a content values so that you can put data into it later in order to put it into the database.
+        ContentValues values = new ContentValues();
 
+        //Initialize an EditText variable so that later you can use it to get the values of the EditText fields.
         EditText gettext;
 
+        //Get the spinner so that you can get the value of it.
         Spinner categorySpinner = (Spinner) findViewById(R.id.categorySpinner);
+
+        //Get the value of it, and if it is still at "Choose a category", alert the user, and don't do anything else.
+        //Otherwise, put all the values into the resources table of the database in their respective columns.
         String spinnerText = String.valueOf(categorySpinner.getSelectedItem());
         if (spinnerText.equals("Choose a Category")) {
             Toast toast = Toast.makeText(this, "Choose a Category", Toast.LENGTH_SHORT);
@@ -109,33 +86,23 @@ public class AddResource extends AppCompatActivity {
             gettext = (EditText) findViewById(R.id.editContactEmail);
             values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, gettext.getText().toString());
 
-            //query the full db and find out what the largest idx is,and set this idx as +1 of that
+            //This queries the full database and find out what the largest idx (index number?( is, and sets this idx as +1 of that
             Integer thisidx = getNewDBIx();
             values.put(CharterConnectDataSQL.Resources.COLUMN_NAME_ENTRY_ID, thisidx.toString());
 
+            //Inserts the values into the database
+            db.insert(CharterConnectDataSQL.Resources.TABLE_NAME, null, values);
 
-            long newRowId;
-            newRowId = db.insert(
-                    CharterConnectDataSQL.Resources.TABLE_NAME,
-                    null,
-                    values);
-
-
-            //final String buttontext = thisbutton.getText().toString();
-
-            //GUYS WHEN YOU SWITCH TO RESOURCECATEGORY THE INTENT HAS TO CONTAIN WHICH RESOURCE YOU ARE
-            //VIEWING OR ELSE HUGE BUGZZZZ
-            Intent intent = new Intent(v.getContext(), ResourceCategory.class);//secondactivity.class); //new Intent(this, secondactivity.class);
-            intent.putExtra("resourcecategory", spinnerText);//you need to grab whatever category the person just wrote
+            //Switches to the resource category screen and grabs whatevery category the user chose
+            Intent intent = new Intent(v.getContext(), ResourceCategory.class);
+            intent.putExtra("resourcecategory", spinnerText); //This grabs whatever category the user chose
             startActivity(intent);
         }
     }
 
-    //find the max index in database, then add 1 to it and return value to be entered in DB
-    private Integer getNewDBIx(){//CCDataSQLhelper dbhelper) {
+    //Find the max index in database, then add 1 to it and return value to be entered in DB
+    private Integer getNewDBIx(){
 
-        //what if its null? what will it return?
-        //WILL THIS EVER BE NULL? or since its an int it doesnt matter?
         String[] selectionArgs = {CharterConnectDataSQL.Resources.COLUMN_NAME_ENTRY_ID,
                 CharterConnectDataSQL.Resources.TABLE_NAME};
         final SQLiteStatement stmt = db.compileStatement("SELECT MAX(" +
@@ -150,32 +117,4 @@ public class AddResource extends AppCompatActivity {
 
     }
 
-
 }
-
-
-
-
-
-///////HOW TO INSERT VALUES INTO DATABASE
-
-/*
-*         CCDataSQLhelper mDbHelper = new CCDataSQLhelper(this);
-        db=mDbHelper.getWritableDatabase();
-
-
-            ContentValues values = new ContentValues(); //make an entry
-            values.put(CharterConnectDataSQL.Resources.CATEGORY, "Art"); //this shoudl be inserting
-            values.put(CharterConnectDataSQL.Resources.NAME, "PAINT");
-            values.put(CharterConnectDataSQL.Resources.GRADELEVEL, 10);
-            values.put(CharterConnectDataSQL.Resources.NUM_UNITS, "1");
-            values.put(CharterConnectDataSQL.Resources.DATE_NEXT_AVAILABLE, "Jan 1");
-            values.put(CharterConnectDataSQL.Resources.CONTACT_INFO, "AA");
-
-            long newRowId;
-            newRowId = db.insert(
-                    CharterConnectDataSQL.Resources.TABLE_NAME,
-                    null,
-                    values);
-
-* */
