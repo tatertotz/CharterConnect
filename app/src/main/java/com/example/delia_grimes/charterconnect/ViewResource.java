@@ -8,6 +8,8 @@ import android.support.v4.app.NavUtils;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -22,6 +24,7 @@ public class ViewResource extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        ListView resourceInfoList;
 
         //receive the intent
         Bundle extras = getIntent().getExtras();
@@ -81,10 +84,22 @@ public class ViewResource extends AppCompatActivity {
             setTitle(c.getString(c.getColumnIndex("name")));
 
             ArrayAdapter thisArrayAdapter = new ArrayAdapter(this, android.R.layout.simple_list_item_1, resourceInfoArray);
-            ListView resourceInfoList = (ListView) findViewById(R.id.resourceInfoList);
+            resourceInfoList = (ListView) findViewById(R.id.resourceInfoList);
             resourceInfoList.setAdapter(thisArrayAdapter);
 
         }
+
+        resourceInfoList = (ListView) findViewById(R.id.resourceInfoList);
+        resourceInfoList.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                if (position == 0) {
+                    Intent intent = new Intent(ViewResource.this, ResourceCategory.class);
+                    intent.putExtra("resourcecategory", categoryName);
+                    startActivity(intent);
+                }
+            }
+        });
 
     }
 

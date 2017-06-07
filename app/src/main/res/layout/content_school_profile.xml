@@ -22,21 +22,20 @@
         android:layout_alignParentStart="true">
 
         <TextView
-            android:text="TextView"
             android:textSize="30sp"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_columnSpan="2"
             android:layout_marginBottom="10dp"
             android:gravity="center"
-            android:id="@+id/textView"
+            android:id="@+id/schoolTextView"
             android:layout_row="0"
             android:layout_column="0" />
 
         <Button
             android:layout_row="1"
             android:layout_column="1"
-            android:text="URL: "
+            android:id="@+id/urlButton"
             android:layout_gravity="fill_horizontal"
             android:layout_width="wrap_content"
             android:gravity="start"
@@ -54,17 +53,15 @@
             android:id="@+id/imageView2" />
 
         <TextView
-            android:text="Grades: "
             android:layout_row="3"
             android:layout_column="1"
             android:layout_gravity="fill_horizontal"
             android:layout_width="wrap_content"
             android:gravity="start"
             style="?android:attr/borderlessButtonStyle"
-            android:id="@+id/textView2" />
+            android:id="@+id/gradesTextView" />
 
         <TextView
-            android:text="Mission Statement: "
             android:layout_row="4"
             android:layout_column="0"
             android:layout_columnSpan="2"
@@ -72,25 +69,25 @@
             android:layout_width="wrap_content"
             android:gravity="start"
             style="?android:attr/borderlessButtonStyle"
-            android:id="@+id/textView3" />
+            android:id="@+id/missionStatementTextView" />
 
         <Button
             android:layout_row="2"
             android:layout_column="1"
-            android:text="Address: "
             android:layout_gravity="fill_horizontal"
             android:layout_width="wrap_content"
             android:gravity="start"
+            android:id="@+id/addressButton"
             style="?android:attr/borderlessButtonStyle"/>
 
         <Button
             android:layout_row="5"
             android:layout_column="0"
             android:layout_columnSpan="2"
-            android:text="Contact Info: "
             android:layout_gravity="fill_horizontal"
             android:layout_width="wrap_content"
             android:gravity="start"
+            android:id="@+id/contactInfoButton"
             style="?android:attr/borderlessButtonStyle"/>
 
     </GridLayout>
